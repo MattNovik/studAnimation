@@ -1,0 +1,848 @@
+.why-we {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 178px 0 202px 0;
+  overflow: hidden;
+
+  &__title {
+    font-family: $ff-neue-machina;
+    font-size: 5.375rem;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0 0 12px;
+  }
+
+  &__help-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0 0 61px;
+    padding: 0;
+  }
+
+  &__wrapper-blocks {
+    position: relative;
+    max-width: 1534px;
+    width: 100%;
+    margin: 0 auto;
+    flex-grow: 1;
+    max-height: 334px;
+
+    &:hover {
+      & .why-we__item--quality {
+        animation-play-state: running;
+      }
+
+      & .why-we__item--clever {
+        animation-play-state: running;
+      }
+
+      & .why-we__item--smile {
+        animation-play-state: running;
+      }
+
+      & .why-we__item--expe {
+        animation-play-state: running;
+      }
+
+      & .why-we__item--waves {
+        animation-play-state: running;
+      }
+
+      & .why-we__item--hopefully {
+        animation-play-state: running;
+      }
+
+      & .why-we__item--arrow {
+        animation-play-state: running;
+      }
+
+      & .why-we__item--green-clever {
+        animation-play-state: running;
+      }
+
+      & .why-we__item--support {
+        animation-play-state: running;
+      }
+
+      & .why-we__item--star {
+        animation-play-state: running;
+      }
+
+      & .why-we__item--docs {
+        animation-play-state: running;
+      }
+
+      & .why-we__item--punctuality {
+        animation-play-state: running;
+      }
+    }
+  }
+
+  &__item {
+    &--quality {
+      left: 0;
+      top: 0;
+      position: absolute;
+      padding: 30px 28px;
+      transform: rotate(6deg);
+      background-color: $color-chartreuse-yellow;
+      border-radius: 22px;
+      animation-name: waving-quality;
+      animation-play-state: paused;
+      animation-duration: 3.5s;
+      animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
+      animation-iteration-count: infinite;
+    }
+
+    &--clever {
+      position: absolute;
+      top: 40%;
+      left: 18%;
+      width: 26px;
+      height: 27px;
+      color: $color-blue;
+      animation-name: waving-clever;
+      animation-play-state: paused;
+      animation-duration: 3s;
+      animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
+      animation-iteration-count: infinite;
+    }
+
+    &--smile {
+      position: absolute;
+      top: 50%;
+      left: 24%;
+      width: 68px;
+      height: 68px;
+      animation-name: waving-smile;
+      animation-play-state: paused;
+      animation-duration: 2.5s;
+      animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
+      animation-iteration-count: infinite;
+    }
+
+    &--expe {
+      position: absolute;
+      left: 24%;
+      top: 10%;
+      display: flex;
+      align-items: center;
+      column-gap: 16px;
+      border-radius: 40px;
+      background-color: $color-default-black;
+      padding: 13px 34px;
+      animation-name: waving-expe;
+      animation-play-state: paused;
+      animation-duration: 1.5s;
+      animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
+      animation-iteration-count: infinite;
+    }
+
+    &--waves {
+      position: absolute;
+      color: $color-chartreuse-yellow;
+      width: 234px;
+      height: 48px;
+      left: 4%;
+      bottom: 15%;
+      animation-name: waving-waves;
+      animation-play-state: paused;
+      animation-duration: 3.5s;
+      animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
+      animation-iteration-count: infinite;
+    }
+
+    &--hopefully {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: absolute;
+      bottom: 24%;
+      left: 36%;
+      width: 216px;
+      height: 100px;
+      transform: rotate(-4.669deg);
+      animation-name: waving-hopefully;
+      animation-play-state: paused;
+      animation-duration: 3s;
+      animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
+      animation-iteration-count: infinite;
+    }
+
+    &--arrow {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      color: $color-chartreuse-yellow;
+      width: 86px;
+      height: 42px;
+      animation-name: waving-arrow;
+      animation-play-state: paused;
+      animation-duration: 2s;
+      animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
+      animation-iteration-count: infinite;
+    }
+
+    &--support {
+      position: absolute;
+      width: 231px;
+      height: 231px;
+      border-radius: 50%;
+      border: solid 4px $color-default-white;
+      display: flex;
+      align-items: center;
+      top: 50%;
+      left: 54%;
+      transform: translate(0, -50%);
+      justify-content: center;
+      background-color: $color-blue;
+      outline: solid 8px $color-blue;
+      animation-name: waving-support;
+      animation-play-state: paused;
+      animation-duration: 4s;
+      animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
+      animation-iteration-count: infinite;
+    }
+
+    &--green-clever {
+      position: absolute;
+      bottom: 15%;
+      left: 70%;
+      width: 26px;
+      height: 27px;
+      color: $color-chartreuse-yellow;
+      animation-name: waving-green-clever;
+      animation-play-state: paused;
+      animation-duration: 2.9s;
+      animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
+      animation-iteration-count: infinite;
+    }
+
+    &--star {
+      position: absolute;
+      left: 70%;
+      top: 0;
+      width: 28px;
+      height: 39px;
+      color: $color-blue;
+      animation-name: waving-star;
+      animation-play-state: paused;
+      animation-duration: 2.6s;
+      animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
+      animation-iteration-count: infinite;
+    }
+
+    &--docs {
+      position: absolute;
+      right: 0;
+      top: 3%;
+      border-radius: 20px;
+      background-color: $color-chartreuse-yellow;
+      padding: 18px 27px;
+      animation-name: waving-docs;
+      animation-play-state: paused;
+      animation-duration: 1.9s;
+      animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
+      animation-iteration-count: infinite;
+    }
+
+    &--punctuality {
+      position: absolute;
+      bottom: 7%;
+      right: 2%;
+      transform: rotate(8.512deg);
+      animation-name: waving-punctuality;
+      animation-play-state: paused;
+      animation-duration: 3.5s;
+      animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
+      animation-iteration-count: infinite;
+    }
+  }
+
+  &__item-quality {
+    &-text {
+      font-family: $ff-neue-machina;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.825rem;
+      white-space: pre-line;
+      color: $color-blue;
+    }
+
+    &-text-first {
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1.375rem;
+    }
+
+    &-star {
+      position: absolute;
+      right: 43px;
+      bottom: 18px;
+      color: $color-default-white;
+      width: 30px;
+      height: 29px;
+      min-height: 29px;
+      min-width: 30px;
+    }
+  }
+
+  &__item-expe {
+    &-text-big {
+      color: $color-default-white;
+      font-family: $ff-neue-machina;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.375rem;
+      letter-spacing: 0.1px;
+    }
+    &-text-small {
+      color: $color-default-white;
+      font-family: $ff-neue-machina;
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.375rem;
+      letter-spacing: 0.1px;
+    }
+  }
+
+  &__item-hopefully {
+    &-first-text {
+      border-radius: 10px 10px 0 0;
+      background-color: $color-lavender;
+      padding: 10px 10px 3px 10px;
+      color: $color-blue;
+      font-family: $ff-neue-machina;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.375rem;
+      letter-spacing: 0.1px;
+      margin: 0;
+      width: max-content;
+    }
+
+    &-second-text {
+      border-radius: 0 10px 10px 0;
+      background-color: $color-lavender;
+      padding: 10px 10px 10px 10px;
+      color: $color-blue;
+      font-family: $ff-neue-machina;
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.375rem;
+      letter-spacing: 0.1px;
+      margin: -2px 0;
+      width: max-content;
+    }
+
+    &-third-text {
+      border-radius: 0 0 10px 10px;
+      background-color: $color-lavender;
+      padding: 10px 20px 10px 10px;
+      color: $color-blue;
+      font-family: $ff-neue-machina;
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.375rem;
+      letter-spacing: 0.1px;
+      margin: 0;
+      width: max-content;
+    }
+  }
+
+  &__item-support-text {
+    text-align: center;
+    color: $color-default-white;
+    font-family: $ff-neue-machina;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.875rem;
+    white-space: pre-line;
+
+    &-first {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+  }
+
+  &__item-docs-text {
+    margin: 0;
+    padding: 0;
+    color: $color-default-black;
+    font-family: $ff-neue-machina;
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.875rem;
+    white-space: pre-line;
+
+    &-first {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+  }
+
+  &__item-punctualit-text {
+    color: $color-blue;
+    font-family: $ff-neue-machina;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.375rem;
+    letter-spacing: 0.1px;
+    white-space: pre-line;
+    margin: 0;
+
+    &-first {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+  }
+
+  &__item-punctuality-arrows {
+    display: flex;
+    justify-content: center;
+    column-gap: 45px;
+    padding: 0 20px 0 0;
+    margin: 15px 0 0 0;
+    color: $color-chartreuse-yellow;
+
+    & svg {
+      transform: rotate(-8deg);
+    }
+  }
+}
+
+@keyframes waving-support {
+  0%,
+  100% {
+    transform: translate(0, -50%) translate3d(0px, 0px, 0px) rotateZ(-2deg);
+  }
+  25%,
+  75% {
+    transform: translate(10px, -55%) translate3d(0px, 5px, 5px) rotateZ(5deg);
+  }
+  50% {
+    transform: translate(0, -50%) translate3d(0px, 10px, 10px) rotateZ(5deg);
+  }
+  /* 0% {
+    transform: translate(0, -50%);
+  }
+
+  10% {
+    transform: translate(-10%, -45%);
+  }
+
+  30% {
+    transform: translate(-5%, -60%);
+  }
+
+  60% {
+    transform: translate(10%, -50%);
+  }
+
+  90% {
+    transform: translate(5%, -45%);
+  }
+
+  100% {
+    transform: translate(0, -50%);
+  } */
+}
+
+@keyframes waving-expe {
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) rotateZ(-2deg);
+  }
+  25%,
+  75% {
+    transform: translate(10px, -5%) translate3d(0px, 5px, 5px) rotateZ(5deg);
+  }
+  50% {
+    transform: translate3d(0px, 10px, 10px) rotateZ(5deg);
+  }
+  /* 0% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-10%, 5%);
+  }
+
+  30% {
+    transform: translate(-5%, -10%);
+  }
+
+  60% {
+    transform: translate(10%, 0%);
+  }
+
+  90% {
+    transform: translate(5%, 5%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  } */
+}
+
+@keyframes waving-clever {
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) rotateZ(-2deg);
+  }
+  25%,
+  75% {
+    transform: translate(10px, -5%) translate3d(0px, 5px, 5px) rotateZ(5deg);
+  }
+  50% {
+    transform: translate3d(0px, 10px, 10px) rotateZ(5deg);
+  }
+  /* 0% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-10%, 5%);
+  }
+
+  30% {
+    transform: translate(-5%, -10%);
+  }
+
+  60% {
+    transform: translate(10%, 0%);
+  }
+
+  90% {
+    transform: translate(5%, 5%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  } */
+}
+
+@keyframes waving-docs {
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) rotateZ(-2deg);
+  }
+  25%,
+  75% {
+    transform: translate(10px, -5%) translate3d(0px, 5px, 5px) rotateZ(5deg);
+  }
+  50% {
+    transform: translate3d(0px, 10px, 10px) rotateZ(5deg);
+  }
+  /* 0% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-10%, 5%);
+  }
+
+  30% {
+    transform: translate(-5%, -10%);
+  }
+
+  60% {
+    transform: translate(10%, 0%);
+  }
+
+  90% {
+    transform: translate(5%, 5%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  } */
+}
+
+@keyframes waving-quality {
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) rotateZ(-2deg) rotateY(6deg)
+      rotateX(6deg);
+  }
+  25%,
+  75% {
+    transform: translate(10px, -5%) translate3d(0px, 5px, 5px) rotateZ(5deg)
+      rotateY(6deg) rotateX(6deg);
+  }
+  50% {
+    transform: translate3d(0px, 10px, 10px) rotateZ(5deg) rotateY(6deg)
+      rotateX(6deg);
+  }
+  /* 0% {
+    transform: translate(0, 0) rotate(6deg);
+  }
+
+  10% {
+    transform: translate(-10%, 5%) rotate(6deg);
+  }
+
+  30% {
+    transform: translate(-5%, -10%) rotate(6deg);
+  }
+
+  60% {
+    transform: translate(10%, 0%) rotate(6deg);
+  }
+
+  90% {
+    transform: translate(5%, 5%) rotate(6deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(6deg);
+  } */
+}
+
+@keyframes waving-smile {
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) rotateZ(-2deg);
+  }
+  25%,
+  75% {
+    transform: translate(10px, -5%) translate3d(0px, 5px, 5px) rotateZ(5deg);
+  }
+  50% {
+    transform: translate3d(0px, 10px, 10px) rotateZ(5deg);
+  }
+  /* 0% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-10%, 5%);
+  }
+
+  30% {
+    transform: translate(-5%, -10%);
+  }
+
+  60% {
+    transform: translate(10%, 0%);
+  }
+
+  90% {
+    transform: translate(5%, 5%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  } */
+}
+
+@keyframes waving-hopefully {
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) rotateZ(-2deg) rotateY(-4.669deg)
+      rotateX(-4.669deg);
+  }
+  25%,
+  75% {
+    transform: translate(10px, -5%) translate3d(0px, 5px, 5px) rotateZ(5deg)
+      rotateY(-4.669deg) rotateX(-4.669deg);
+  }
+  50% {
+    transform: translate3d(0px, 10px, 10px) rotateZ(5deg) rotateY(-4.669deg)
+      rotateX(-4.669deg);
+  }
+  /* 0% {
+    transform: translate(0, 0) rotate(-4.669deg);
+  }
+
+  10% {
+    transform: translate(-10%, 5%) rotate(-4.669deg);
+  }
+
+  30% {
+    transform: translate(-5%, -10%) rotate(-4.669deg);
+  }
+
+  60% {
+    transform: translate(10%, 0%) rotate(-4.669deg);
+  }
+
+  90% {
+    transform: translate(5%, 5%) rotate(-4.669deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(-4.669deg);
+  } */
+}
+
+@keyframes waving-arrow {
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) rotateZ(-2deg);
+  }
+  25%,
+  75% {
+    transform: translate(10px, -5%) translate3d(0px, 5px, 5px) rotateZ(5deg);
+  }
+  50% {
+    transform: translate3d(0px, 10px, 10px) rotateZ(5deg);
+  }
+  /*  0% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-10%, 5%);
+  }
+
+  30% {
+    transform: translate(-5%, -10%);
+  }
+
+  60% {
+    transform: translate(10%, 0%);
+  }
+
+  90% {
+    transform: translate(5%, 5%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  } */
+}
+
+@keyframes waving-green-clever {
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) rotateZ(-2deg);
+  }
+  25%,
+  75% {
+    transform: translate(10px, -5%) translate3d(0px, 5px, 5px) rotateZ(5deg);
+  }
+  50% {
+    transform: translate3d(0px, 10px, 10px) rotateZ(5deg);
+  }
+  /* 0% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-10%, 5%);
+  }
+
+  30% {
+    transform: translate(-5%, -10%);
+  }
+
+  60% {
+    transform: translate(10%, 0%);
+  }
+
+  90% {
+    transform: translate(5%, 5%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  } */
+}
+
+@keyframes waving-star {
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) rotateZ(-2deg);
+  }
+  25%,
+  75% {
+    transform: translate(10px, -5%) translate3d(0px, 5px, 5px) rotateZ(5deg);
+  }
+  50% {
+    transform: translate3d(0px, 10px, 10px) rotateZ(5deg);
+  }
+  /*  0% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-10%, 5%);
+  }
+
+  30% {
+    transform: translate(-5%, -10%);
+  }
+
+  60% {
+    transform: translate(10%, 0%);
+  }
+
+  90% {
+    transform: translate(5%, 5%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  } */
+}
+
+@keyframes waving-punctuality {
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0px) rotateZ(-2deg) rotateX(8.512deg)
+      rotateY(8.512deg);
+  }
+  25%,
+  75% {
+    transform: translate(10px, -5%) translate3d(0px, 5px, 5px) rotateZ(5deg)
+      rotateX(8.512deg) rotateY(8.512deg);
+  }
+  50% {
+    transform: translate3d(0px, 10px, 10px) rotateZ(5deg) rotateX(8.512deg)
+      rotateY(8.512deg);
+  }
+  /* 0% {
+    transform: translate(0, 0) rotate(8.512deg);
+  }
+
+  10% {
+    transform: translate(10%, 3%) rotate(8.512deg);
+  }
+
+  20% {
+    transform: translate(5%, 0%) rotate(8.512deg);
+  }
+
+  30% {
+    transform: translate(-4%, -3%) rotate(8.512deg);
+  }
+
+  45% {
+    transform: translate(-2%, -1%) rotate(8.512deg);
+  }
+
+  60% {
+    transform: translate(1%, 4%) rotate(8.512deg);
+  }
+
+  70% {
+    transform: translate(3%, 6%) rotate(8.512deg);
+  }
+
+  80% {
+    transform: translate(4%, 9%) rotate(8.512deg);
+  }
+
+  90% {
+    transform: translate(3%, 6%) rotate(8.512deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(8.512deg);
+  } */
+}

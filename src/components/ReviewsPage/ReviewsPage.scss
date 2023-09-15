@@ -1,0 +1,129 @@
+.reviews-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 168px 0 202px;
+
+  &__wrapper {
+    display: flex;
+    width: 100%;
+    height: 613px;
+  }
+
+  &__list {
+    width: 100%;
+    overflow: visible;
+  }
+
+  & .swiper-wrapper {
+    display: flex;
+  }
+
+  &__list-item {
+    display: flex;
+    align-items: flex-end;
+    max-width: 822px;
+    margin: 0 auto;
+    position: relative;
+    height: 100%;
+    transition: transform 0.3s ease;
+    transform: scale(0.9);
+
+    &--active {
+      transform: scale(1.2);
+    }
+  }
+
+  &__item-name {
+    position: absolute;
+    left: 32%;
+    top: 6%;
+    z-index: 10;
+    color: $color-blue;
+    font-family: $ff-neue-machina;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 194%;
+    letter-spacing: -2.88px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &__item-written-text {
+    position: absolute;
+    width: 267px;
+    height: 100px;
+    left: 19%;
+    top: 20%;
+  }
+
+  &__item-info {
+    position: absolute;
+    transform: rotate(-10deg);
+    padding: 35px 25px 25px;
+    background-color: $color-blue;
+    bottom: 85px;
+    left: 10%;
+    border-radius: 21px;
+    max-width: 420px;
+    z-index: 10;
+  }
+
+  &__item-nice-review {
+    position: absolute;
+    width: 118px;
+    height: 118px;
+    top: -60px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  &__item-first-image {
+    margin: auto 0 40px auto;
+    width: 478px;
+    height: 521px;
+  }
+
+  &__item-text {
+    color: $color-default-white;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+  }
+
+  &__button-prev,
+  &__button-next {
+    position: absolute;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background-color: $color-transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: $color-blue;
+    z-index: 100;
+  }
+
+  &__custom-navigation {
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+  }
+
+  &__button-prev {
+    left: 20%;
+
+    & svg {
+      transform: rotate(180deg);
+    }
+  }
+  &__button-next {
+    right: 20%;
+  }
+}
