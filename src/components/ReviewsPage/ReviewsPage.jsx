@@ -26,10 +26,10 @@ const ReivewsPage = ({ refReview }) => {
           ref={refSwiperReview}
           spaceBetween={-100}
           loop={true}
-          autoplay={{
+          /* autoplay={{
             delay: 5500,
             disableOnInteraction: false,
-          }}
+          }} */
           modules={[Virtual, Navigation, Mousewheel, Autoplay]}
           slidesPerView={1.7}
           effect="coverflow"

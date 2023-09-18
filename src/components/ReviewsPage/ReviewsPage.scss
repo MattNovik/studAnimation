@@ -133,6 +133,11 @@
     @include vp--1439 {
       left: 4%;
     }
+
+    @include vp--1245 {
+      max-width: 270px;
+      left: 15%;
+    }
   }
 
   &__item-nice-review {
@@ -173,6 +178,12 @@
     @include vp--1439 {
       width: 350px;
       height: 380px;
+    }
+
+    @include vp--1245 {
+      width: 300px;
+      height: 320px;
+      margin: auto 0 auto auto;
     }
   }
 

@@ -60,6 +60,10 @@
       @include vp--1919 {
         padding: 0 15px 0 0;
       }
+
+      @include vp--1245 {
+        padding: 0 8px 0 0;
+      }
     }
 
     &-prev {
@@ -68,6 +72,10 @@
 
       @include vp--1919 {
         padding: 0 0 0 15px;
+      }
+
+      @include vp--1245 {
+        padding: 0 0 0 8px;
       }
     }
 
@@ -97,6 +105,13 @@
       border-radius: 40px 40px 0 0;
     }
 
+    @include vp--1245 {
+      width: 180px;
+      height: 115px;
+      font-size: 1.8rem;
+      line-height: 2rem;
+    }
+
     &:hover {
       /*       transform: scale(1.2); */
 
@@ -118,19 +133,20 @@
         height: 202px;
       }
 
+      @include vp--1245 {
+        width: 240px;
+        height: 180px;
+      }
+
       & .menu-bottom__list-item-text {
         color: $color-blue;
         font-size: 2.75rem;
         font-weight: 800;
-      }
 
-      /*       &:hover {
-        transform: scale(1);
-
-        & .menu-bottom__list-item-text {
-          animation: none;
+        @include vp--1245 {
+          font-size: 2.2rem;
         }
-      } */
+      }
     }
 
     &--first {
@@ -138,6 +154,10 @@
 
       @include vp--1919 {
         height: 155px;
+      }
+
+      @include vp--1245 {
+        height: 135px;
       }
     }
   }
