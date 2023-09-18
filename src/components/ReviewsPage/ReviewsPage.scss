@@ -2,12 +2,24 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 168px 0 202px;
+  padding: size-desktop(202px) 0 size-desktop(202px);
+
+  @include vp--1919 {
+    padding: 202px 0 202px;
+  }
 
   &__wrapper {
     display: flex;
     width: 100%;
-    height: 613px;
+    height: size-desktop(613px);
+
+    @include vp--1919 {
+      height: 613px;
+    }
+
+    @include vp--1689 {
+      height: 500px;
+    }
   }
 
   &__list {
@@ -22,12 +34,20 @@
   &__list-item {
     display: flex;
     align-items: flex-end;
-    max-width: 822px;
+    max-width: size-desktop(822px);
     margin: 0 auto;
     position: relative;
     height: 100%;
     transition: transform 0.3s ease;
     transform: scale(0.9);
+
+    @include vp--1919 {
+      max-width: 822px;
+    }
+
+    @include vp--1689 {
+      max-width: 600px;
+    }
 
     &--active {
       transform: scale(1.2);
@@ -45,44 +65,82 @@
     font-style: normal;
     font-weight: 800;
     line-height: 194%;
-    letter-spacing: -2.88px;
+    letter-spacing: size-desktop(-2.88px);
     text-transform: uppercase;
     margin: 0;
+
+    @include vp--1919 {
+      letter-spacing: -2.88px;
+    }
   }
 
   &__item-written-text {
     position: absolute;
-    width: 267px;
-    height: 100px;
+    width: size-desktop(267px);
+    height: size-desktop(100px);
     left: 19%;
     top: 20%;
+
+    @include vp--1919 {
+      width: 267px;
+      height: 100px;
+    }
   }
 
   &__item-info {
     position: absolute;
     transform: rotate(-10deg);
-    padding: 35px 25px 25px;
+    padding: size-desktop(35px) size-desktop(25px) size-desktop(25px);
     background-color: $color-blue;
-    bottom: 85px;
+    bottom: size-desktop(85px);
     left: 10%;
-    border-radius: 21px;
-    max-width: 420px;
+    border-radius: size-desktop(21px);
+    max-width: size-desktop(420px);
     z-index: 10;
+
+    @include vp--1919 {
+      padding: 35px 25px 25px;
+      bottom: 85px;
+      border-radius: 21px;
+      max-width: 420px;
+    }
+
+    @include vp--1689 {
+      max-width: 320px;
+      bottom: 40px;
+    }
   }
 
   &__item-nice-review {
     position: absolute;
-    width: 118px;
-    height: 118px;
-    top: -60px;
+    width: size-desktop(118px);
+    height: size-desktop(118px);
+    top: size-desktop(-60px);
     left: 50%;
     transform: translate(-50%, 0);
+
+    @include vp--1919 {
+      width: 118px;
+      height: 118px;
+      top: -60px;
+    }
   }
 
   &__item-first-image {
-    margin: auto 0 40px auto;
-    width: 478px;
-    height: 521px;
+    margin: auto 0 size-desktop(40px) auto;
+    width: size-desktop(478px);
+    height: size-desktop(521px);
+
+    @include vp--1919 {
+      margin: auto 0 40px auto;
+      width: 478px;
+      height: 521px;
+    }
+
+    @include vp--1689 {
+      width: 320px;
+      height: 360px;
+    }
   }
 
   &__item-text {
@@ -91,12 +149,16 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+
+    @include vp--1689 {
+      font-size: 0.7rem;
+    }
   }
 
   &__button-prev,
   &__button-next {
     position: absolute;
-    width: 80px;
+    width: size-desktop(80px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -108,6 +170,10 @@
     cursor: pointer;
     color: $color-blue;
     z-index: 100;
+
+    @include vp--1919 {
+      width: 80px;
+    }
   }
 
   &__custom-navigation {

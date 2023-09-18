@@ -2,14 +2,30 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 262px 0 202px 0;
+  padding: size-desktop(262px) 0 size-desktop(202px) 0;
   position: relative;
+
+  @include vp--1919 {
+    padding: 262px 0 202px 0;
+  }
+
+  @include vp--1689 {
+    padding: 200px 30px 202px;
+  }
 
   &__wrapper {
     display: flex;
     flex-direction: column;
-    max-width: 1534px;
+    max-width: size-desktop(1534px);
     width: 100%;
+
+    @include vp--1919 {
+      max-width: 1534px;
+    }
+
+    @include vp--1689 {
+      max-width: 1260px;
+    }
   }
 
   &__title {
@@ -19,8 +35,17 @@
     font-style: normal;
     font-weight: 700;
     line-height: 5.375rem;
-    margin: 0 0 71px;
+    margin: 0 0 size-desktop(71px);
     white-space: pre-line;
+
+    @include vp--1919 {
+      margin: 0 0 71px;
+    }
+
+    @include vp--1689 {
+      font-size: 4rem;
+      line-height: 4rem;
+    }
   }
 
   &__help-title {
@@ -30,16 +55,46 @@
   &__image-wrapper {
     position: absolute;
     right: 0;
-    top: 50px;
-    width: 776px;
-    height: 754px;
+    top: size-desktop(50px);
+    width: size-desktop(776px);
+    height: size-desktop(754px);
+
+    @include vp--1919 {
+      top: 50px;
+      width: 776px;
+      height: 754px;
+    }
+
+    @include vp--1689 {
+      width: 500px;
+      height: 490px;
+    }
   }
 
   &__star {
     position: absolute;
-    top: 95px;
-    left: 100px;
+    top: size-desktop(95px);
+    left: size-desktop(100px);
+    width: size-desktop(290px);
+    height: size-desktop(253px);
     color: $color-chartreuse-yellow;
+
+    @include vp--1919 {
+      top: 95px;
+      left: 100px;
+      width: 290px;
+      height: 253px;
+    }
+
+    @include vp--1689 {
+      top: 25px;
+      left: 30px;
+    }
+
+    & svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &__woomen-image {
@@ -52,29 +107,58 @@
 
   &__number-one {
     position: absolute;
-    bottom: 0px;
-    left: 350px;
-    width: 233px;
-    height: 233px;
+    bottom: 0;
+    left: size-desktop(350px);
+    width: size-desktop(233px);
+    height: size-desktop(233px);
     object-fit: cover;
+
+    @include vp--1919 {
+      left: 350px;
+      width: 233px;
+      height: 233px;
+    }
+
+    @include vp--1689 {
+      left: 200px;
+      bottom: -20px;
+      width: 180px;
+      height: 180px;
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   &__inputs-wrapper {
     display: flex;
-    column-gap: 16px;
+    column-gap: size-desktop(16px);
+
+    @include vp--1919 {
+      column-gap: 16px;
+    }
   }
 
   &__input {
-    min-width: 250px;
-    padding: 20px 35px;
+    min-width: size-desktop(250px);
+    padding: size-desktop(20px) size-desktop(35px);
     border: solid 1px $light-text-gray-700;
-    border-radius: 30px;
+    border-radius: size-desktop(30px);
     font-weight: 700;
     font-size: 1rem;
     line-height: 1.25rem;
     color: $color-default-black;
     outline: none;
     transition: border-color 0.3s ease, color 0.3s ease;
+
+    @include vp--1919 {
+      min-width: 250px;
+      padding: 20px 35px;
+      border-radius: 30px;
+    }
 
     &::placeholder {
       font-weight: 700;
@@ -85,7 +169,11 @@
 
     &.error {
       color: $error-color;
-      border: solid 1px $error-color;
+      border: solid size-desktop(1px) $error-color;
+
+      @include vp--1919 {
+        border: solid 1px $error-color;
+      }
 
       &::placeholder {
         color: $error-color;
@@ -100,17 +188,23 @@
     outline: none;
     border: none;
     margin: 0;
-    padding: 16px 17px;
-    min-width: 250px;
+    padding: size-desktop(16px) size-desktop(17px);
+    min-width: size-desktop(250px);
     background-color: $color-blue;
     color: $color-default-white;
     font-weight: 700;
     font-size: 1rem;
     line-height: 1.25;
-    border-radius: 30px;
+    border-radius: size-desktop(30px);
     text-transform: uppercase;
     cursor: pointer;
     transition: background-color 0.3s ease;
+
+    @include vp--1919 {
+      padding: 16px 17px;
+      min-width: 250px;
+      border-radius: 30px;
+    }
   }
 
   &__input-agreeament {
@@ -119,13 +213,17 @@
         color: $error-color;
 
         &::before {
-          border: solid 1px $error-color;
+          border: solid size-desktop(1px) $error-color;
+
+          @include vp--1919 {
+            border: solid 1px $error-color;
+          }
         }
       }
     }
 
     & + label {
-      padding: 0 0 0 22px;
+      padding: 0 0 0 size-desktop(22px);
       position: relative;
       font-weight: 400;
       font-size: 0.75rem;
@@ -133,13 +231,21 @@
       color: $color-default-black;
       cursor: pointer;
 
+      @include vp--1919 {
+        padding: 0 0 0 22px;
+      }
+
       @include vp--767 {
         color: $color-default-white;
       }
 
       & a {
         color: inherit;
-        text-underline-offset: 2px;
+        text-underline-offset: size-desktop(2px);
+
+        @include vp--1919 {
+          text-underline-offset: 2px;
+        }
       }
 
       &:before {
@@ -148,27 +254,40 @@
         left: 0;
         top: 50%;
         transform: translate(0, -50%);
-        height: 16px;
-        width: 16px;
+        height: size-desktop(16px);
+        width: size-desktop(16px);
         background: $color-default-white;
-        border-radius: 2px;
-        border: solid 1px #ced4da;
+        border-radius: size-desktop(2px);
+        border: solid size-desktop(1px) #ced4da;
+
+        @include vp--1919 {
+          height: 16px;
+          width: 16px;
+          border-radius: 2px;
+          border: solid 1px #ced4da;
+        }
       }
 
       &:after {
         content: '';
         position: absolute;
-        left: 3px;
+        left: size-desktop(3px);
         top: 45%;
         transform: translate(0, -50%);
-        width: 10px;
-        height: 8px;
+        width: size-desktop(10px);
+        height: size-desktop(8px);
         background-image: url('../../assets/images/svg/checkMark.svg');
         background-repeat: no-repeat;
         background-size: cover;
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease, visibility 0.3s ease;
+
+        @include vp--1919 {
+          width: 10px;
+          height: 8px;
+          left: 3px;
+        }
       }
     }
 

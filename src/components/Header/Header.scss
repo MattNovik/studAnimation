@@ -3,13 +3,25 @@
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
-  max-width: 1536px;
+  max-width: size-desktop(1536px);
   width: 100%;
   display: flex;
-  column-gap: 20px;
+  column-gap: size-desktop(20px);
   margin: 0 auto;
   align-items: center;
-  padding: 34px 17px 0;
-  max-height: 80px;
+  padding: size-desktop(34px) size-desktop(17px) 0;
+  max-height: size-desktop(80px);
   z-index: 10;
+
+  @include vp--1919 {
+    max-width: 1536px;
+    column-gap: 20px;
+    padding: 34px 17px 0;
+    max-height: 80px;
+  }
+
+  @include vp--1689 {
+    max-width: 1260px;
+    padding: 34px 0 0;
+  }
 }

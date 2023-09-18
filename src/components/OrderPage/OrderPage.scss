@@ -2,20 +2,62 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 200px 0 202px 0;
+  padding: size-desktop(200px) 0 size-desktop(202px) 0;
+
+  @include vp--1919 {
+    padding: 200px 0 202px 0;
+  }
+
+  @include vp--1689 {
+    padding: 160px 0 202px 0;
+  }
+
+  &__lenta-image {
+    position: absolute;
+    left: 0;
+    top: 8%;
+    width: 100%;
+    height: 100%;
+    animation-name: lenta-dancing;
+    animation-duration: 11s;
+    animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
+    animation-iteration-count: infinite;
+  }
+
+  &__lenta-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+  }
 
   &__wrapper {
     position: relative;
     display: flex;
     width: 100%;
-    padding: 84px 113px;
-    max-width: 1534px;
-    height: 580px;
+    padding: size-desktop(84px) size-desktop(113px);
+    max-width: size-desktop(1534px);
+    height: size-desktop(580px);
     background-color: $color-blue;
-    border-radius: 40px;
-    background-image: url('../../assets/images/big-lenta.png');
+    border-radius: size-desktop(40px);
+    /*     background-image: url('../../assets/images/big-lenta.png'); */
     background-position: bottom;
     background-repeat: no-repeat;
+
+    @include vp--1919 {
+      padding: 84px 113px;
+      max-width: 1534px;
+      height: 580px;
+      border-radius: 40px;
+    }
+
+    @include vp--1689 {
+      height: 460px;
+      max-width: 1260px;
+      padding: 40px 50px;
+    }
   }
 
   &__form-wrapper {
@@ -26,15 +68,25 @@
 
   &__title {
     display: flex;
-    column-gap: 16px;
+    column-gap: size-desktop(16px);
     color: $color-default-white;
     font-family: $ff-neue-machina;
     font-size: 3rem;
     font-style: normal;
     font-weight: 800;
     line-height: 163%;
-    margin: 0 0 10px;
+    margin: 0 0 size-desktop(10px);
     padding: 0;
+    white-space: nowrap;
+
+    @include vp--1919 {
+      column-gap: 16px;
+      margin: 0 0 10px;
+    }
+
+    @include vp--1689 {
+      font-size: 2.4rem;
+    }
   }
 
   &__title-big {
@@ -47,25 +99,45 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin: 0 0 34px;
+    margin: 0 0 size-desktop(34px);
+
+    @include vp--1919 {
+      margin: 0 0 34px;
+    }
+
+    @include vp--1689 {
+      margin: 0 0 20px;
+      font-size: 1rem;
+    }
   }
 
   &__inputs-wrapper {
     display: flex;
-    column-gap: 16px;
+    column-gap: size-desktop(16px);
+
+    @include vp--1919 {
+      column-gap: 16px;
+    }
   }
 
   &__input {
-    min-width: 250px;
-    padding: 20px 35px;
-    border: solid 1px $light-text-gray-700;
-    border-radius: 30px;
+    min-width: size-desktop(250px);
+    padding: size-desktop(20px) size-desktop(35px);
+    border: solid size-desktop(1px) $light-text-gray-700;
+    border-radius: size-desktop(30px);
     font-weight: 700;
     font-size: 1rem;
     line-height: 1.25rem;
     color: $color-default-black;
     outline: none;
     transition: border-color 0.3s ease, color 0.3s ease;
+
+    @include vp--1919 {
+      min-width: 250px;
+      padding: 20px 35px;
+      border-radius: 30px;
+      border: solid 1px $light-text-gray-700;
+    }
 
     &::placeholder {
       font-weight: 700;
@@ -76,7 +148,11 @@
 
     &.error {
       color: $error-color;
-      border: solid 1px $error-color;
+      border: solid size-desktop(1px) $error-color;
+
+      @include vp--1919 {
+        border: solid 1px $error-color;
+      }
 
       &::placeholder {
         color: $error-color;
@@ -91,17 +167,23 @@
     outline: none;
     border: none;
     margin: 0;
-    padding: 16px 17px;
-    min-width: 250px;
+    padding: size-desktop(16px) size-desktop(17px);
+    min-width: size-desktop(250px);
     background-color: $color-chartreuse-yellow;
     color: $color-default-black;
     font-weight: 700;
     font-size: 1rem;
     line-height: 1.25;
-    border-radius: 30px;
+    border-radius: size-desktop(30px);
     text-transform: uppercase;
     cursor: pointer;
     transition: background-color 0.3s ease;
+
+    @include vp--1919 {
+      padding: 16px 17px;
+      min-width: 250px;
+      border-radius: 30px;
+    }
   }
 
   &__input-agreeament {
@@ -110,13 +192,17 @@
         color: $error-color;
 
         &::before {
-          border: solid 1px $error-color;
+          border: solid size-desktop(1px) $error-color;
+
+          @include vp--1919 {
+            border: solid 1px $error-color;
+          }
         }
       }
     }
 
     & + label {
-      padding: 0 0 0 22px;
+      padding: 0 0 0 size-desktop(22px);
       position: relative;
       font-weight: 400;
       font-size: 0.75rem;
@@ -124,13 +210,21 @@
       color: $color-default-white;
       cursor: pointer;
 
+      @include vp--1919 {
+        padding: 0 0 0 22px;
+      }
+
       @include vp--767 {
         color: $color-default-white;
       }
 
       & a {
         color: inherit;
-        text-underline-offset: 2px;
+        text-underline-offset: size-desktop(2px);
+
+        @include vp--1919 {
+          text-underline-offset: 2px;
+        }
       }
 
       &:before {
@@ -139,27 +233,40 @@
         left: 0;
         top: 50%;
         transform: translate(0, -50%);
-        height: 16px;
-        width: 16px;
+        height: size-desktop(16px);
+        width: size-desktop(16px);
         background: $color-default-white;
-        border-radius: 2px;
-        border: solid 1px #ced4da;
+        border-radius: size-desktop(2px);
+        border: solid size-desktop(1px) #ced4da;
+
+        @include vp--1919 {
+          height: 16px;
+          width: 16px;
+          border-radius: 2px;
+          border: solid 1px #ced4da;
+        }
       }
 
       &:after {
         content: '';
         position: absolute;
-        left: 3px;
+        left: size-desktop(3px);
         top: 45%;
         transform: translate(0, -50%);
-        width: 10px;
-        height: 8px;
+        width: size-desktop(10px);
+        height: size-desktop(8px);
         background-image: url('../../assets/images/svg/checkMark.svg');
         background-repeat: no-repeat;
         background-size: cover;
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease, visibility 0.3s ease;
+
+        @include vp--1919 {
+          left: 3px;
+          width: 10px;
+          height: 8px;
+        }
       }
     }
 
@@ -176,13 +283,54 @@
   &__image-wrapper {
     position: absolute;
     bottom: 0;
-    right: 88px;
+    right: size-desktop(88px);
     width: 43%;
     height: 110%;
     overflow: hidden;
+    animation-name: wrapper-dancing;
+    animation-duration: 15s;
+    animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
+    animation-iteration-count: infinite;
+
+    @include vp--1919 {
+      right: 88px;
+    }
 
     & img {
       object-fit: contain;
+      animation-name: image-dancing;
+      animation-duration: 15s;
+      animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
+      animation-iteration-count: infinite;
     }
+  }
+}
+
+@keyframes image-dancing {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(0, 0) scale(0.9);
+  }
+}
+@keyframes wrapper-dancing {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(100px, 0);
+  }
+}
+
+@keyframes lenta-dancing {
+  0%,
+  100% {
+    transform: translate(0, 0) ;
+  }
+  50% {
+    transform: translate(-50px, 0) scale(1.2) rotate(-10deg);
   }
 }

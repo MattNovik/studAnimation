@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import GirlImage from '../../assets/images/girl@2x.png';
+import LentaImage from '../../assets/images/big-lenta@2x.png';
 
 const OrderPage = ({ refOrder }) => {
   const [loadingState, setLoadingState] = useState(false);
@@ -51,6 +52,13 @@ const OrderPage = ({ refOrder }) => {
       key="4"
     >
       <div className="order-page__wrapper">
+        <div className="order-page__lenta-wrapper">
+          <img
+            src={LentaImage}
+            alt="lenta-image"
+            className="order-page__lenta-image"
+          />
+        </div>
         <div className="order-page__form-wrapper">
           <h3 className="order-page__title">
             Дарим скидку

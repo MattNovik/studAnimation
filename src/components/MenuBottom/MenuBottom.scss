@@ -4,7 +4,7 @@
   left: 50%;
   transform: translate(-50%, 0%);
   width: 100%;
-  max-width: 1370px;
+  max-width: size-desktop(1370px);
   display: flex;
   /*   animation-name: start-bottom-menu; */
   animation-duration: 1.5s;
@@ -13,6 +13,11 @@
   animation-iteration-count: 1;
   z-index: 200;
   will-change: transform;
+
+  @include vp--1919 {
+    max-width: 1370px;
+  }
+
 
   &__list,
   & .swiper-wrapper {
@@ -26,7 +31,11 @@
   }
 
   & .swiper-wrapper {
-    height: 280px;
+    height: size-desktop(280px);
+
+    @include vp--1919 {
+      height: 280px;
+    }
   }
 
   & .swiper-slide {
@@ -41,11 +50,20 @@
 
     &-next {
       justify-content: flex-end;
-      padding: 0 15px 0 0;
+      padding: 0 size-desktop(15px) 0 0;
+
+      @include vp--1919 {
+        padding: 0 15px 0 0;
+      }
     }
+
     &-prev {
       justify-content: flex-start;
-      padding: 0 0 0 15px;
+      padding: 0 0 0 size-desktop(15px);
+
+      @include vp--1919 {
+        padding: 0 0 0 15px;
+      }
     }
 
     &:hover {
@@ -55,9 +73,9 @@
 
   &__list-item {
     position: relative;
-    width: 206px;
-    height: 125px;
-    border-radius: 40px 40px 0 0;
+    width: size-desktop(206px);
+    height: size-desktop(125px);
+    border-radius: size-desktop(40px) size-desktop(40px) 0 0;
     color: $color-default-black;
     font-family: $ff-neue-machina;
     background-color: $color-lavender;
@@ -68,11 +86,18 @@
     transition: transform 0.4s ease-in, width 0.4s ease-in, height 0.4s ease-in;
     will-change: transform;
 
+    @include vp--1919 {
+      width: 206px;
+      height: 125px;
+      border-radius: 40px 40px 0 0;
+    }
+
     &:hover {
       /*       transform: scale(1.2); */
 
       & .menu-bottom__list-item-text {
         /*         animation-name: rotate-text-in; */
+        animation-play-state: running;
 
         /*         transform: translate(-50%, -50%) rotate(360deg) scale(0.6); */
       }
@@ -80,8 +105,13 @@
 
     &--active {
       background-color: $color-chartreuse-yellow;
-      width: 280px;
-      height: 202px;
+      width: size-desktop(280px);
+      height: size-desktop(202px);
+
+      @include vp--1919 {
+        width: 280px;
+        height: 202px;
+      }
 
       & .menu-bottom__list-item-text {
         color: $color-blue;
@@ -99,7 +129,11 @@
     }
 
     &--first {
-      height: 155px;
+      height: size-desktop(155px);
+
+      @include vp--1919 {
+        height: 155px;
+      }
     }
   }
 
@@ -113,6 +147,7 @@
     animation-timing-function: linear;
     animation-name: rotate-text-out;
     text-rendering: optimizeLegibility;
+    animation-play-state: paused;
 
     &--order {
       transform: translate(-50%, -50%) rotate(-5deg);
