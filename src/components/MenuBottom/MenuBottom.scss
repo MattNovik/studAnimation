@@ -13,11 +13,15 @@
   animation-iteration-count: 1;
   z-index: 200;
   will-change: transform;
+  pointer-events: none;
+
+  & .swiper {
+    pointer-events: none;
+  }
 
   @include vp--1919 {
     max-width: 1370px;
   }
-
 
   &__list,
   & .swiper-wrapper {
@@ -39,6 +43,7 @@
   }
 
   & .swiper-slide {
+    pointer-events: all;
     display: flex;
     justify-content: center;
     padding: 0;
