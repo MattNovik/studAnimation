@@ -1,16 +1,16 @@
 .main-page {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: size-desktop(262px) 0 size-desktop(202px) 0;
+  justify-content: center;
+  padding: size-desktop(90px) 0 size-desktop(202px) 0;
   position: relative;
 
   @include vp--1919 {
-    padding: 262px 0 202px 0;
+    padding: 90px 0 202px 0;
   }
 
   @include vp--1689 {
-    padding: 200px 30px 202px;
+    padding: 90px 30px 202px;
   }
 
   @include vp--1245 {
@@ -65,14 +65,14 @@
   &__image-wrapper {
     position: absolute;
     right: 0;
-    top: size-desktop(50px);
-    width: size-desktop(776px);
-    height: size-desktop(754px);
+    top: size-desktop(20px);
+    width: size-desktop(696px);
+    height: size-desktop(654px);
 
     @include vp--1919 {
-      top: 50px;
-      width: 776px;
-      height: 754px;
+      top: 20px;
+      width: 696px;
+      height: 654px;
     }
 
     @include vp--1689 {
