@@ -22,18 +22,6 @@ const sliderData = [
 ];
 
 const Menubottom = ({ refSwiper, activeElem, clickSnap }) => {
-  /*   const handleClick = (e) => {
-    let index = e.target.closest('.swiper-slide').dataset.swiperSlideIndex;
-    if (index) {
-      refSwiper.current.swiper.slideToLoop(index);
-      if (refSwiper.current.swiper.previousIndex > index) {
-        refSwiper.current.swiper.loopFix('right');
-      } else {
-        refSwiper.current.swiper.loopFix('left');
-      }
-    }
-  }; */
-
   return (
     <div className="menu-bottom">
       <Swiper

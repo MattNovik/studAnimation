@@ -109,6 +109,12 @@ function App() {
     }
   }, [isInViewportOrder]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoaderState(false);
+    }, 3000);
+  }, []);
+
   const clickSnap = (e) => {
     let index = e.target.closest('.swiper-slide')
       ? e.target.closest('.swiper-slide').dataset.swiperSlideIndex

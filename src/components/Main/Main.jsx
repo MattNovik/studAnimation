@@ -6,6 +6,7 @@ import WhyWe from '../WhyWe/WhyWe';
 import OrderPage from '../OrderPage/OrderPage';
 import MainPage from '../MainPage/MainPage';
 import ReivewsPage from '../ReviewsPage/ReviewsPage';
+import HorizontalScroll from 'react-scroll-horizontal';
 
 const Main = ({
   refSwiper,
@@ -19,13 +20,14 @@ const Main = ({
   activeElem,
 }) => {
   const ref = useRef(null);
+  const refContainer = useRef(null);
 
   const bindScrollSnap = () => {
     const element = ref.current;
     createScrollSnap(
       element,
       {
-        snapDestinationY: '95%',
+        snapDestinationX: '100%',
         timeout: 800,
         duration: 1000,
         threshold: 0.2,
@@ -34,12 +36,24 @@ const Main = ({
     );
   };
 
-  useEffect(() => {
+  const handleScroll = (event) => {
+    const container = event.target.closest('.main');
+    console.log('scroll');
+    container.scrollTo({
+      top: 0,
+      left:
+        event.deltaY > 0
+          ? container.scrollLeft + window.innerWidth
+          : container.scrollLeft - window.innerWidth,
+    });
+  };
+
+  /*   useEffect(() => {
     bindScrollSnap();
-  }, []);
+  }, []); */
 
   return (
-    <main className="main" ref={ref}>
+    <main className="main" ref={ref} onWheel={handleScroll}>
       <MainPage refMain={refMain} />
       <ReivewsPage refReview={refReview} />
       <WhyWe refWhy={refWhy} />

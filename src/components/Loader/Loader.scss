@@ -80,7 +80,7 @@ $timingFunction: ease;
     animation-name: h#{$h}w#{$w}l#{$l};
     animation-timing-function: $timingFunction;
     animation-duration: $duration;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 1;
   }
   @keyframes h#{$h}w#{$w}l#{$l} {
     0% {
