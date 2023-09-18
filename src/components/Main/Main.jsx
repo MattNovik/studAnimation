@@ -41,31 +41,9 @@ const Main = ({
   return (
     <main className="main" ref={ref}>
       <MainPage refMain={refMain} />
-      {/* <section className="main__item" ref={refMain} data-elemes="main" key="1">
-        Главная
-      </section> */}
       <ReivewsPage refReview={refReview} />
-      {/* <section
-        className="main__item"
-        ref={refReview}
-        data-elemes="reviews"
-        key="2"
-      >
-        Отзывы
-      </section> */}
       <WhyWe refWhy={refWhy} />
-      {/* <section className="main__item" ref={refWhy} data-elemes="why" key="3">
-        Почему мы
-      </section> */}
       <OrderPage refOrder={refOrder} />
-      {/* <section
-        className="main__item"
-        ref={refOrder}
-        data-elemes="order"
-        key="4"
-      >
-        Заявка
-      </section> */}
       <section
         className="main__item"
         ref={refContacts}

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, useMemo } from 'react';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import './scss/index.scss';
+import Loader from './components/Loader/Loader';
 
 const useIntersection = (element, rootMargin) => {
   const [isVisible, setState] = useState(false);
@@ -30,6 +31,7 @@ function App() {
   const refOrder = useRef(null);
   const refContacts = useRef(null);
   const [activeElem, setACtiveElem] = useState('main');
+  const [loaderState, setLoaderState] = useState(true);
 
   const isInViewportMain = useIntersection(refMain, '-50px');
   const isInViewportReview = useIntersection(refReview, '-50px');
@@ -157,7 +159,8 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className={loaderState ? 'App App--loading' : 'App'}>
+      <Loader />
       <Header clickSnap={clickSnap} />
       <Main
         refSwiper={refSwiper}
