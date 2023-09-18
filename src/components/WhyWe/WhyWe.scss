@@ -139,6 +139,11 @@
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
       animation-iteration-count: infinite;
 
+      @include vp--1245 {
+        left: 25%;
+        top: 30%;
+      }
+
       & svg {
         width: 100%;
         height: 100%;
@@ -213,6 +218,11 @@
       animation-duration: 4s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
       animation-iteration-count: infinite;
+
+      @include vp--1245 {
+        left: 33%;
+        bottom: 26%;
+      }
     }
 
     &--arrow {
@@ -230,6 +240,10 @@
 
       @include vp--1689 {
         left: 28%;
+      }
+
+      @include vp--1245 {
+        left: 45%;
       }
     }
 
@@ -262,6 +276,11 @@
         width: 200px;
         height: 200px;
       }
+
+      @include vp--1245 {
+        width: 140px;
+        height: 140px;
+      }
     }
 
     &--green-clever {
@@ -280,6 +299,13 @@
       @include vp--1689 {
         left: 55%;
         bottom: 5%;
+      }
+
+      @include vp--1245 {
+        left: 80%;
+        bottom: 45%;
+        width: 3%;
+        height: 12%;
       }
 
       & svg {
@@ -303,6 +329,10 @@
 
       @include vp--1689 {
         left: 64%;
+      }
+
+      @include vp--1245 {
+        left: 57%;
       }
 
       & svg {
@@ -339,6 +369,12 @@
       animation-duration: 4.5s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
       animation-iteration-count: infinite;
+
+      @include vp--1245 {
+        transform: rotate(24.512deg);
+        bottom: 0%;
+        right: 1%;
+      }
     }
   }
 
@@ -459,9 +495,18 @@
     line-height: 1.875rem;
     white-space: pre-line;
 
+    @include vp--1245 {
+      font-size: 0.7rem;
+      line-height: 1rem;
+    }
+
     &-first {
       font-size: 1.5rem;
       font-weight: 700;
+
+      @include vp--1245 {
+        font-size: 1.05rem;
+      }
     }
   }
 

@@ -24,4 +24,8 @@
     max-width: 1260px;
     padding: 34px 0 0;
   }
+
+  @include vp--1245 {
+    max-width: 1000px;
+  }
 }
