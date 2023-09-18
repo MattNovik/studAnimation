@@ -46,7 +46,11 @@
     }
 
     @include vp--1689 {
-      max-width: 600px;
+      max-width: 700px;
+    }
+
+    @include vp--1439 {
+      max-width: 550px;
     }
 
     &--active {
@@ -72,6 +76,11 @@
     @include vp--1919 {
       letter-spacing: -2.88px;
     }
+
+    @include vp--1439 {
+      top: 11%;
+      left: 25%;
+    }
   }
 
   &__item-written-text {
@@ -84,6 +93,13 @@
     @include vp--1919 {
       width: 267px;
       height: 100px;
+    }
+
+    @include vp--1439 {
+      top: 30%;
+      left: 14%;
+      width: 200px;
+      height: 70px;
     }
   }
 
@@ -109,6 +125,10 @@
       max-width: 320px;
       bottom: 40px;
     }
+
+    @include vp--1439 {
+      left: 4%;
+    }
   }
 
   &__item-nice-review {
@@ -118,6 +138,10 @@
     top: size-desktop(-60px);
     left: 50%;
     transform: translate(-50%, 0);
+    animation-name: review-icons-dancing;
+    animation-duration: 10s;
+    animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    animation-iteration-count: infinite;
 
     @include vp--1919 {
       width: 118px;
@@ -138,8 +162,13 @@
     }
 
     @include vp--1689 {
-      width: 320px;
-      height: 360px;
+      width: 390px;
+      height: 420px;
+    }
+
+    @include vp--1439 {
+      width: 350px;
+      height: 380px;
     }
   }
 
@@ -191,5 +220,18 @@
   }
   &__button-next {
     right: 20%;
+  }
+}
+
+@keyframes review-icons-dancing {
+  0%,
+  100% {
+    transform: translate(-50%, 0) scale(1);
+  }
+  25% {
+    transform: translate(calc(-50% + 10px), 5px) scale(0.8);
+  }
+  50% {
+    transform: translate(calc(-50% - 10px), -5px) scale(1.2);
   }
 }

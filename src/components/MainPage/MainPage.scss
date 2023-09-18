@@ -69,6 +69,10 @@
       width: 500px;
       height: 490px;
     }
+
+    @include vp--1439 {
+      top: 80px;
+    }
   }
 
   &__star {
@@ -140,6 +144,12 @@
     @include vp--1919 {
       column-gap: 16px;
     }
+
+    @include vp--1439 {
+      display: grid;
+      grid-template-columns: minmax(auto, 300px) minmax(auto, 300px);
+      row-gap: 20px;
+    }
   }
 
   &__input {
@@ -204,6 +214,10 @@
       padding: 16px 17px;
       min-width: 250px;
       border-radius: 30px;
+    }
+
+    @include vp--1439 {
+      height: 62px;
     }
   }
 

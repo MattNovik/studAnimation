@@ -43,7 +43,8 @@
     width: 100%;
     margin: 0 auto;
     flex-grow: 1;
-    max-height: size-desktop(334px);
+    max-height: 38vh;
+    min-height: size-dektop(334px);
 
     @include vp--1919 {
       max-width: 1534px;
@@ -115,7 +116,7 @@
       background-color: $color-chartreuse-yellow;
       border-radius: size-desktop(22px);
       animation-name: waving-quality;
-      animation-play-state: paused;
+      /* animation-play-state: paused; */
       animation-duration: 4.5s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
       animation-iteration-count: infinite;
@@ -133,7 +134,7 @@
       height: 10%;
       color: $color-blue;
       animation-name: waving-clever;
-      animation-play-state: paused;
+      /* animation-play-state: paused; */
       animation-duration: 4s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
       animation-iteration-count: infinite;
@@ -151,7 +152,7 @@
       width: 6%;
       height: 18%;
       animation-name: waving-smile;
-      animation-play-state: paused;
+      /* animation-play-state: paused; */
       animation-duration: 3.5s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
       animation-iteration-count: infinite;
@@ -173,7 +174,7 @@
       background-color: $color-default-black;
       padding: 1% 2.4%;
       animation-name: waving-expe;
-      animation-play-state: paused;
+      /* animation-play-state: paused; */
       animation-duration: 2.5s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
       animation-iteration-count: infinite;
@@ -191,7 +192,7 @@
       left: 4%;
       bottom: 15%;
       animation-name: waving-waves;
-      animation-play-state: paused;
+      /* animation-play-state: paused; */
       animation-duration: 4.5s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
       animation-iteration-count: infinite;
@@ -208,7 +209,7 @@
       height: 30%;
       transform: rotate(-4.669deg);
       animation-name: waving-hopefully;
-      animation-play-state: paused;
+      /* animation-play-state: paused; */
       animation-duration: 4s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
       animation-iteration-count: infinite;
@@ -222,7 +223,7 @@
       width: 6%;
       height: 13%;
       animation-name: waving-arrow;
-      animation-play-state: paused;
+      /* animation-play-state: paused; */
       animation-duration: 3s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
       animation-iteration-count: infinite;
@@ -234,8 +235,8 @@
 
     &--support {
       position: absolute;
-      width: 15%;
-      height: 70%;
+      width: size-desktop(231px);
+      height: size-desktop(231px);
       border-radius: 50%;
       border: solid size-desktop(4px) $color-default-white;
       display: flex;
@@ -247,7 +248,7 @@
       background-color: $color-blue;
       outline: solid size-desktop(8px) $color-blue;
       animation-name: waving-support;
-      animation-play-state: paused;
+      /* animation-play-state: paused; */
       animation-duration: 5s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
       animation-iteration-count: infinite;
@@ -271,7 +272,7 @@
       height: 9%;
       color: $color-chartreuse-yellow;
       animation-name: waving-green-clever;
-      animation-play-state: paused;
+      /* animation-play-state: paused; */
       animation-duration: 3.9s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
       animation-iteration-count: infinite;
@@ -295,7 +296,7 @@
       height: 13%;
       color: $color-blue;
       animation-name: waving-star;
-      animation-play-state: paused;
+      /* animation-play-state: paused; */
       animation-duration: 3.6s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
       animation-iteration-count: infinite;
@@ -318,7 +319,7 @@
       background-color: $color-chartreuse-yellow;
       padding: 1% 1.6%;
       animation-name: waving-docs;
-      animation-play-state: paused;
+      /* animation-play-state: paused; */
       animation-duration: 2.9s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
       animation-iteration-count: infinite;
@@ -334,7 +335,7 @@
       right: 2%;
       transform: rotate(8.512deg);
       animation-name: waving-punctuality;
-      animation-play-state: paused;
+      /* animation-play-state: paused; */
       animation-duration: 4.5s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
       animation-iteration-count: infinite;
