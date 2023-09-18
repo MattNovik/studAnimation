@@ -33,11 +33,11 @@ function App() {
   const [activeElem, setACtiveElem] = useState('main');
   const [loaderState, setLoaderState] = useState(true);
 
-  const isInViewportMain = useIntersection(refMain, '-50px');
-  const isInViewportReview = useIntersection(refReview, '-50px');
-  const isInViewportWhy = useIntersection(refWhy, '-50px');
-  const isInViewportOrder = useIntersection(refOrder, '-50px');
-  const isInViewportContacts = useIntersection(refContacts, '-50px');
+  const isInViewportMain = useIntersection(refMain, '-100px');
+  const isInViewportReview = useIntersection(refReview, '-100px');
+  const isInViewportWhy = useIntersection(refWhy, '-100px');
+  const isInViewportOrder = useIntersection(refOrder, '-100px');
+  const isInViewportContacts = useIntersection(refContacts, '-100px');
 
   /*   console.log('isInViewportMain:' + ' ' + isInViewportMain);
   console.log('isInViewportReview:' + ' ' + isInViewportReview);
@@ -99,7 +99,7 @@ function App() {
 
   useEffect(() => {
     if (isInViewportContacts) {
-      refSwiper.current.swiper.slideToLoop(1);
+      refSwiper.current.swiper.slideToLoop(6);
     }
   }, [isInViewportContacts]);
 
@@ -123,31 +123,21 @@ function App() {
       console.log(index);
 
       if (index == 3 || index == 8) {
-        console.log(refReview.current);
         refReview.current.scrollIntoView({
           block: 'start',
           behavior: 'smooth',
         });
-        console.log('review');
       } else if (index == 4 || index == 9) {
-        console.log(refWhy.current);
         refWhy.current.scrollIntoView({ block: 'start', behavior: 'smooth' });
-        console.log('why');
       } else if (index == 2 || index == 7) {
-        console.log(refMain.current);
         refMain.current.scrollIntoView({ block: 'start', behavior: 'smooth' });
-        console.log('main');
       } else if (index == 0 || index == 5) {
-        console.log(refOrder.current);
         refOrder.current.scrollIntoView({ block: 'start', behavior: 'smooth' });
-        console.log('order');
       } else if (index == 1 || index == 6) {
-        console.log(refContacts.current);
         refContacts.current.scrollIntoView({
           block: 'start',
           behavior: 'smooth',
         });
-        console.log('contacts');
       }
 
       if (refSwiper.current.swiper.previousIndex > index) {

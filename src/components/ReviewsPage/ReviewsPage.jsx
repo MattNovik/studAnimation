@@ -1,6 +1,6 @@
 import './ReviewsPage.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Virtual, Navigation, Mousewheel } from 'swiper/modules';
+import { Virtual, Navigation, Mousewheel, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/virtual';
 import 'swiper/css/navigation';
@@ -26,7 +26,11 @@ const ReivewsPage = ({ refReview }) => {
           ref={refSwiperReview}
           spaceBetween={-100}
           loop={true}
-          modules={[Virtual, Navigation, Mousewheel]}
+          autoplay={{
+            delay: 5500,
+            disableOnInteraction: false,
+          }}
+          modules={[Virtual, Navigation, Mousewheel, Autoplay]}
           slidesPerView={1.7}
           effect="coverflow"
           mousewheel={true}

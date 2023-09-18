@@ -102,7 +102,7 @@
 
       & .menu-bottom__list-item-text {
         /*         animation-name: rotate-text-in; */
-        animation-play-state: running;
+        /* animation-play-state: running; */
 
         /*         transform: translate(-50%, -50%) rotate(360deg) scale(0.6); */
       }
@@ -152,7 +152,8 @@
     animation-timing-function: linear;
     animation-name: rotate-text-out;
     text-rendering: optimizeLegibility;
-    animation-play-state: paused;
+    animation-delay: 3s;
+    /* animation-play-state: paused; */
 
     &--order {
       transform: translate(-50%, -50%) rotate(-5deg);
