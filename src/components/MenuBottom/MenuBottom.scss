@@ -96,7 +96,8 @@
     font-weight: 700;
     line-height: 2.2rem;
     cursor: pointer;
-    transition: transform 0.4s ease-in, width 0.4s ease-in, height 0.4s ease-in;
+    transition: transform 0.4s ease-in, width 0.4s ease-in, height 0.4s ease-in,
+      background-color 0.4s ease-in, color 0.4s ease-in;
     will-change: transform;
 
     @include vp--1919 {
@@ -114,6 +115,8 @@
 
     &:hover {
       /*       transform: scale(1.2); */
+      background-color: $color-blue;
+      color: $color-default-white;
 
       & .menu-bottom__list-item-text {
         /*         animation-name: rotate-text-in; */
@@ -136,6 +139,11 @@
       @include vp--1245 {
         width: 240px;
         height: 180px;
+      }
+
+      &:hover {
+        background-color: $color-chartreuse-yellow;
+        color: $color-blue;
       }
 
       & .menu-bottom__list-item-text {

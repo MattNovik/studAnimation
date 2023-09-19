@@ -24,6 +24,7 @@ const useIntersection = (element, rootMargin) => {
 };
 
 function App() {
+  const refMainSwiper = useRef(null);
   const refSwiper = useRef(null);
   const refMain = useRef(null);
   const refReview = useRef(null);
@@ -32,6 +33,7 @@ function App() {
   const refContacts = useRef(null);
   const [activeElem, setACtiveElem] = useState('main');
   const [loaderState, setLoaderState] = useState(true);
+  const [activeSlideIndexBottom, setActiveSlideIndexBottom] = useState(2);
 
   const isInViewportMain = useIntersection(refMain, '-100px');
   const isInViewportReview = useIntersection(refReview, '-100px');
@@ -68,7 +70,7 @@ function App() {
     );
   } */
   const handleSnap = () => {
-    /*     if (isElementInViewPort(refMain.current)) {
+    /* if (isElementInViewPort(refMain.current)) {
       refSwiper.current.swiper.slideToLoop(2);
     } else if (isElementInViewPort(refReview.current)) {
       refSwiper.current.swiper.slideToLoop(3);
@@ -81,31 +83,67 @@ function App() {
 
   useEffect(() => {
     if (isInViewportReview) {
-      refSwiper.current.swiper.slideToLoop(3);
+      console.log(activeSlideIndexBottom);
+      refSwiper.current.swiper.slideToLoop(
+        activeSlideIndexBottom % 5 === 0 && activeSlideIndexBottom !== 25
+          ? 3 + (activeSlideIndexBottom / 5 - 1) * 5
+          : (activeSlideIndexBottom - 2) % 5 === 0 &&
+            activeSlideIndexBottom !== 25
+          ? 3 + ((activeSlideIndexBottom - 2) / 5 - 1) * 5
+          : 3
+      );
     }
   }, [isInViewportReview]);
 
   useEffect(() => {
     if (isInViewportMain) {
-      refSwiper.current.swiper.slideToLoop(2);
+      console.log(activeSlideIndexBottom);
+      refSwiper.current.swiper.slideToLoop(
+        (activeSlideIndexBottom - 4) % 5 === 0
+          ? 2 + ((activeSlideIndexBottom - 4) / 5) * 5
+          : (activeSlideIndexBottom - 6) % 5 === 0
+          ? 2 + ((activeSlideIndexBottom - 6) / 5) * 5
+          : 2
+      );
     }
   }, [isInViewportMain]);
 
   useEffect(() => {
     if (isInViewportWhy) {
-      refSwiper.current.swiper.slideToLoop(4);
+      console.log(activeSlideIndexBottom);
+      refSwiper.current.swiper.slideToLoop(
+        (activeSlideIndexBottom - 1) % 5 === 0
+          ? 4 + ((activeSlideIndexBottom - 1) / 5 - 1) * 5
+          : (activeSlideIndexBottom - 3) % 5 === 0
+          ? 4 + ((activeSlideIndexBottom - 3) / 5 - 1) * 5
+          : 4
+      );
     }
   }, [isInViewportWhy]);
 
   useEffect(() => {
     if (isInViewportContacts) {
-      refSwiper.current.swiper.slideToLoop(6);
+      console.log(activeSlideIndexBottom);
+      refSwiper.current.swiper.slideToLoop(
+        (activeSlideIndexBottom - 3) % 5 === 0
+          ? 6 + ((activeSlideIndexBottom - 3) / 5 - 1) * 5
+          : (activeSlideIndexBottom - 5) % 5 === 0
+          ? 6 + ((activeSlideIndexBottom - 5) / 5 - 1) * 5
+          : 6
+      );
     }
   }, [isInViewportContacts]);
 
   useEffect(() => {
     if (isInViewportOrder) {
-      refSwiper.current.swiper.slideToLoop(5);
+      console.log(activeSlideIndexBottom);
+      refSwiper.current.swiper.slideToLoop(
+        (activeSlideIndexBottom - 2) % 5 === 0
+          ? 5 + ((activeSlideIndexBottom - 2) / 5 - 1) * 5
+          : (activeSlideIndexBottom - 4) % 5 === 0
+          ? 5 + ((activeSlideIndexBottom - 4) / 5 - 1) * 5
+          : 5
+      );
     }
   }, [isInViewportOrder]);
 
@@ -116,6 +154,7 @@ function App() {
   }, []);
 
   const clickSnap = (e) => {
+    console.log(refSwiper.current.swiper);
     let index = e.target.closest('.swiper-slide')
       ? e.target.closest('.swiper-slide').dataset.swiperSlideIndex
       : e.target.closest('.menu-header__item-link')
@@ -124,26 +163,16 @@ function App() {
       ? e.target.closest('.logo').dataset.swiperSlideIndex
       : undefined;
     if (index) {
-      console.log(refSwiper.current.swiper);
-      refSwiper.current.swiper.slideToLoop(index);
-      console.log(index);
-
-      if (index == 3 || index == 8) {
-        refReview.current.scrollIntoView({
-          block: 'start',
-          behavior: 'smooth',
-        });
-      } else if (index == 4 || index == 9) {
-        refWhy.current.scrollIntoView({ block: 'start', behavior: 'smooth' });
-      } else if (index == 2 || index == 7) {
-        refMain.current.scrollIntoView({ block: 'start', behavior: 'smooth' });
-      } else if (index == 0 || index == 5) {
-        refOrder.current.scrollIntoView({ block: 'start', behavior: 'smooth' });
-      } else if (index == 1 || index == 6) {
-        refContacts.current.scrollIntoView({
-          block: 'start',
-          behavior: 'smooth',
-        });
+      if (index == 0 || index == 5 || index == 10 || index == 15) {
+        refMainSwiper.current.swiper.slideToLoop(3); //order
+      } else if (index == 1 || index == 6 || index == 11 || index == 16) {
+        refMainSwiper.current.swiper.slideToLoop(4); //contacts
+      } else if (index == 2 || index == 7 || index == 12 || index == 16) {
+        refMainSwiper.current.swiper.slideToLoop(0); //main
+      } else if (index == 3 || index == 8 || index == 13 || index == 18) {
+        refMainSwiper.current.swiper.slideToLoop(1); //reviews
+      } else if (index == 4 || index == 9 || index == 14 || index == 19) {
+        refMainSwiper.current.swiper.slideToLoop(2); //why-we
       }
 
       if (refSwiper.current.swiper.previousIndex > index) {
@@ -160,6 +189,7 @@ function App() {
       <Header clickSnap={clickSnap} />
       <Main
         refSwiper={refSwiper}
+        refMainSwiper={refMainSwiper}
         refMain={refMain}
         refReview={refReview}
         refWhy={refWhy}
@@ -168,6 +198,8 @@ function App() {
         handleSnap={handleSnap}
         activeElem={activeElem}
         clickSnap={clickSnap}
+        setActiveSlideIndexBottom={setActiveSlideIndexBottom}
+        isInViewportWhy={isInViewportWhy}
       />
     </div>
   );

@@ -1,5 +1,5 @@
 import './WhyWe.scss';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { ReactComponent as IconSmallStar } from '../../assets/images/svg/four-star.svg';
 import { ReactComponent as IconFourFlower } from '../../assets/images/svg/four-flower.svg';
 import { ReactComponent as IconSmile } from '../../assets/images/svg/full-smile.svg';
@@ -12,7 +12,8 @@ const getRandomNumber = (min, max) => {
   return Math.random() * (max - min) + min;
 };
 
-const WhyWe = ({ refWhy }) => {
+const WhyWe = ({ refWhy, isInViewportWhy }) => {
+  const [loadingState, setLoadingState] = useState(true);
   const refFirst = useRef(null);
   const refSecond = useRef(null);
   const refThird = useRef(null);
@@ -107,6 +108,12 @@ const WhyWe = ({ refWhy }) => {
     movingPunctuality(refTwelve.current, getRandomNumber(50, 70));
   }, []);
 
+  useEffect(() => {
+    if (isInViewportWhy) {
+      setLoadingState(false);
+    }
+  }, [isInViewportWhy]);
+
   return (
     <section
       className="main__item why-we"
@@ -114,7 +121,13 @@ const WhyWe = ({ refWhy }) => {
       data-elemes="why"
       key="3"
     >
-      <h2 className="why-we__title">Почему мы?</h2>
+      <h2
+        className={
+          loadingState ? 'why-we__title' : 'why-we__title why-we__title--loaded'
+        }
+      >
+        Почему мы?
+      </h2>
       <p className="why-we__help-title">
         Каждый день наши преподаватели помогают тысячам студентов учиться лучше
       </p>

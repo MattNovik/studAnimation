@@ -6,11 +6,17 @@ import WhyWe from '../WhyWe/WhyWe';
 import OrderPage from '../OrderPage/OrderPage';
 import MainPage from '../MainPage/MainPage';
 import ReivewsPage from '../ReviewsPage/ReviewsPage';
-import HorizontalScroll from 'react-scroll-horizontal';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Virtual, Mousewheel } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/virtual';
+
+const mainData = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
 const Main = ({
   refSwiper,
   refMain,
+  refMainSwiper,
   refReview,
   refWhy,
   refOrder,
@@ -18,6 +24,8 @@ const Main = ({
   handleSnap,
   clickSnap,
   activeElem,
+  setActiveSlideIndexBottom,
+  isInViewportWhy = { isInViewportWhy },
 }) => {
   const ref = useRef(null);
   const refContainer = useRef(null);
@@ -56,20 +64,226 @@ const Main = ({
   };
 
   return (
-    <main className="main" ref={ref} onWheel={handleScroll}>
-      <MainPage refMain={refMain} />
-      <ReivewsPage refReview={refReview} />
-      <WhyWe refWhy={refWhy} />
-      <OrderPage refOrder={refOrder} />
-      <section
-        className="main__item"
-        ref={refContacts}
-        data-elemes="contacts"
-        key="5"
-      >
-        Контакты
-      </section>
+    <main className="main" ref={ref} /* onWheel={handleScroll} */>
+      <div className="main__wrapper">
+        <Swiper
+          ref={refMainSwiper}
+          spaceBetween={0}
+          loop={true}
+          modules={[Virtual, Mousewheel]}
+          onSlideChange={(swiper) => {
+            handleSnap();
+          }}
+          slidesPerView={1}
+          mousewheel={true}
+          className="main__list"
+        >
+          <SwiperSlide className="main__slide">
+            {({ isActive, isPrev, isNext }) => (
+              <li
+                className={
+                  isActive
+                    ? 'main__list-item main__list-item--active'
+                    : isPrev || isNext
+                    ? 'main__list-item main__list-item--near'
+                    : 'main__list-item'
+                }
+              >
+                <MainPage refMain={refMain} />
+              </li>
+            )}
+          </SwiperSlide>
+          <SwiperSlide className="main__slide">
+            {({ isActive, isPrev, isNext }) => (
+              <li
+                className={
+                  isActive
+                    ? 'main__list-item main__list-item--active'
+                    : isPrev || isNext
+                    ? 'main__list-item main__list-item--near'
+                    : 'main__list-item'
+                }
+              >
+                <ReivewsPage refReview={refReview} />
+              </li>
+            )}
+          </SwiperSlide>
+          <SwiperSlide className="main__slide">
+            {({ isActive, isPrev, isNext }) => (
+              <li
+                className={
+                  isActive
+                    ? 'main__list-item main__list-item--active'
+                    : isPrev || isNext
+                    ? 'main__list-item main__list-item--near'
+                    : 'main__list-item'
+                }
+              >
+                <WhyWe refWhy={refWhy} isInViewportWhy={isInViewportWhy} />
+              </li>
+            )}
+          </SwiperSlide>
+          <SwiperSlide className="main__slide">
+            {({ isActive, isPrev, isNext }) => (
+              <li
+                className={
+                  isActive
+                    ? 'main__list-item main__list-item--active'
+                    : isPrev || isNext
+                    ? 'main__list-item main__list-item--near'
+                    : 'main__list-item'
+                }
+              >
+                <OrderPage refOrder={refOrder} />
+              </li>
+            )}
+          </SwiperSlide>
+          <SwiperSlide className="main__slide">
+            {({ isActive, isPrev, isNext }) => (
+              <li
+                className={
+                  isActive
+                    ? 'main__list-item main__list-item--active'
+                    : isPrev || isNext
+                    ? 'main__list-item main__list-item--near'
+                    : 'main__list-item'
+                }
+              >
+                <section
+                  className="main__item"
+                  ref={refContacts}
+                  data-elemes="contacts"
+                  key="5"
+                >
+                  Контакты
+                </section>
+              </li>
+            )}
+          </SwiperSlide>
+          {/*           {mainData.map((item, index) => {
+            if (index === 0 || index === 5) {
+              return (
+                <SwiperSlide
+                  virtualIndex={index}
+                  key={item}
+                  className="main__slide"
+                >
+                  {({ isActive, isPrev, isNext }) => (
+                    <li
+                      className={
+                        isActive
+                          ? 'main__list-item main__list-item--active'
+                          : isPrev || isNext
+                          ? 'main__list-item main__list-item--near'
+                          : 'main__list-item'
+                      }
+                    >
+                      <MainPage refMain={refMain} />
+                    </li>
+                  )}
+                </SwiperSlide>
+              );
+            } else if (index === 1 || index === 6) {
+              return (
+                <SwiperSlide
+                  virtualIndex={index}
+                  key={item}
+                  className="main__slide"
+                >
+                  {({ isActive, isPrev, isNext }) => (
+                    <li
+                      className={
+                        isActive
+                          ? 'main__list-item main__list-item--active'
+                          : isPrev || isNext
+                          ? 'main__list-item main__list-item--near'
+                          : 'main__list-item'
+                      }
+                    >
+                      <ReivewsPage refReview={refReview} />
+                    </li>
+                  )}
+                </SwiperSlide>
+              );
+            } else if (index === 2 || index === 7) {
+              return (
+                <SwiperSlide
+                  virtualIndex={index}
+                  key={item}
+                  className="main__slide"
+                >
+                  {({ isActive, isPrev, isNext }) => (
+                    <li
+                      className={
+                        isActive
+                          ? 'main__list-item main__list-item--active'
+                          : isPrev || isNext
+                          ? 'main__list-item main__list-item--near'
+                          : 'main__list-item'
+                      }
+                    >
+                      <WhyWe refWhy={refWhy} />
+                    </li>
+                  )}
+                </SwiperSlide>
+              );
+            } else if (index === 3 || index === 8) {
+              return (
+                <SwiperSlide
+                  virtualIndex={index}
+                  key={item}
+                  className="main__slide"
+                >
+                  {({ isActive, isPrev, isNext }) => (
+                    <li
+                      className={
+                        isActive
+                          ? 'main__list-item main__list-item--active'
+                          : isPrev || isNext
+                          ? 'main__list-item main__list-item--near'
+                          : 'main__list-item'
+                      }
+                    >
+                      <OrderPage refOrder={refOrder} />
+                    </li>
+                  )}
+                </SwiperSlide>
+              );
+            } else {
+              return (
+                <SwiperSlide
+                  virtualIndex={index}
+                  key={item}
+                  className="main__slide"
+                >
+                  {({ isActive, isPrev, isNext }) => (
+                    <li
+                      className={
+                        isActive
+                          ? 'main__list-item main__list-item--active'
+                          : isPrev || isNext
+                          ? 'main__list-item main__list-item--near'
+                          : 'main__list-item'
+                      }
+                    >
+                      <section
+                        className="main__item"
+                        ref={refContacts}
+                        data-elemes="contacts"
+                        key="5"
+                      >
+                        Контакты
+                      </section>
+                    </li>
+                  )}
+                </SwiperSlide>
+              );
+            }
+          })} */}
+        </Swiper>
+      </div>
       <Menubottom
+        setActiveSlideIndexBottom={setActiveSlideIndexBottom}
         refSwiper={refSwiper}
         activeElem={activeElem}
         clickSnap={clickSnap}

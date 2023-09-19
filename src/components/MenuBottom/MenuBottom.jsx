@@ -19,28 +19,49 @@ const sliderData = [
   'slider8',
   'slider9',
   'slider10',
+  'slider11',
+  'slider12',
+  'slider13',
+  'slider14',
+  'slider15',
+  'slider16',
+  'slider17',
+  'slider18',
+  'slider19',
+  'slider20',
 ];
 
-const Menubottom = ({ refSwiper, activeElem, clickSnap }) => {
+const Menubottom = ({
+  setActiveSlideIndexBottom,
+  refSwiper,
+  activeElem,
+  clickSnap,
+}) => {
   return (
     <div className="menu-bottom">
       <Swiper
         ref={refSwiper}
         spaceBetween={0}
+        speed={100}
         loop={true}
         modules={[Virtual]}
         slidesPerView={5}
         effect="coverflow"
         centeredSlides={true}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => swiper.slideToLoop(2)}
+        onSlideChange={(swiper) => {
+          setActiveSlideIndexBottom(swiper.activeIndex);
+        }}
+        onSwiper={(swiper) => {
+          setActiveSlideIndexBottom(2);
+          swiper.slideToLoop(2);
+        }}
         shortSwipes={false}
         virtual
         allowTouchMove={false}
         className="menu-bottom__list"
       >
         {sliderData.map((item, index) => {
-          if (index === 0 || index === 5) {
+          if (index === 0 || index === 5 || index === 10 || index === 15) {
             return (
               <SwiperSlide
                 virtualIndex={index}
@@ -64,7 +85,12 @@ const Menubottom = ({ refSwiper, activeElem, clickSnap }) => {
                 )}
               </SwiperSlide>
             );
-          } else if (index === 1 || index === 6) {
+          } else if (
+            index === 1 ||
+            index === 6 ||
+            index === 11 ||
+            index === 16
+          ) {
             return (
               <SwiperSlide
                 virtualIndex={index}
@@ -89,7 +115,12 @@ const Menubottom = ({ refSwiper, activeElem, clickSnap }) => {
                 )}
               </SwiperSlide>
             );
-          } else if (index === 2 || index === 7) {
+          } else if (
+            index === 2 ||
+            index === 7 ||
+            index === 12 ||
+            index === 17
+          ) {
             return (
               <SwiperSlide
                 virtualIndex={index}
@@ -115,7 +146,12 @@ const Menubottom = ({ refSwiper, activeElem, clickSnap }) => {
                 )}
               </SwiperSlide>
             );
-          } else if (index === 3 || index === 8) {
+          } else if (
+            index === 3 ||
+            index === 8 ||
+            index === 13 ||
+            index === 18
+          ) {
             return (
               <SwiperSlide
                 virtualIndex={index}
@@ -168,69 +204,6 @@ const Menubottom = ({ refSwiper, activeElem, clickSnap }) => {
         })}
       </Swiper>
     </div>
-    /* <div className="menu-bottom">
-      <ul className="menu-bottom__list">
-        <li
-          className={
-            activeElem === 'order'
-              ? 'menu-bottom__list-item menu-bottom__list-item--first menu-bottom__list-item--order menu-bottom__list-item--active'
-              : 'menu-bottom__list-item menu-bottom__list-item--first menu-bottom__list-item--order'
-          }
-        >
-          <span className="menu-bottom__list-item-text menu-bottom__list-item-text--order">
-            Заявка
-          </span>
-        </li>
-        <li
-          className={
-            activeElem === 'contacts'
-              ? 'menu-bottom__list-item menu-bottom__list-item--contacts menu-bottom__list-item--active'
-              : 'menu-bottom__list-item menu-bottom__list-item--contacts'
-          }
-        >
-          <span className="menu-bottom__list-item-text menu-bottom__list-item-text--contacts">
-            Контакты
-          </span>
-          <IconSmile className="menu-bottom__item-icon menu-bottom__item-icon--contacts" />
-        </li>
-        <li
-          className={
-            activeElem === 'main'
-              ? 'menu-bottom__list-item  menu-bottom__list-item--main menu-bottom__list-item--active'
-              : 'menu-bottom__list-item menu-bottom__list-item--main'
-          }
-        >
-          <span className="menu-bottom__list-item-text menu-bottom__list-item-text--main">
-            Главная
-          </span>
-          <IconStar className="menu-bottom__item-icon menu-bottom__item-icon--main menu-bottom__item-icon--first" />
-          <IconFlower className="menu-bottom__item-icon menu-bottom__item-icon--main menu-bottom__item-icon--second" />
-        </li>
-        <li
-          className={
-            activeElem === 'review'
-              ? 'menu-bottom__list-item  menu-bottom__list-item--reviews menu-bottom__list-item--active'
-              : 'menu-bottom__list-item  menu-bottom__list-item--reviews'
-          }
-        >
-          <span className="menu-bottom__list-item-text menu-bottom__list-item-text--reviews">
-            Отзывы
-          </span>
-          <IconRounStar className="menu-bottom__item-icon menu-bottom__item-icon--reviews" />
-        </li>
-        <li
-          className={
-            activeElem === 'why'
-              ? 'menu-bottom__list-item menu-bottom__list-item--first menu-bottom__list-item--why menu-bottom__list-item--active'
-              : 'menu-bottom__list-item menu-bottom__list-item--first menu-bottom__list-item--why'
-          }
-        >
-          <span className="menu-bottom__list-item-text menu-bottom__list-item-text--why">
-            {'Почему\n мы?'}
-          </span>
-        </li>
-      </ul>
-    </div> */
   );
 };
 
