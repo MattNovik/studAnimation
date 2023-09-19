@@ -21,6 +21,7 @@ const Main = ({
 }) => {
   const ref = useRef(null);
   const refContainer = useRef(null);
+  const [scrollState, setScrollState] = useState(false);
 
   const bindScrollSnap = () => {
     const element = ref.current;
@@ -37,20 +38,22 @@ const Main = ({
   };
 
   const handleScroll = (event) => {
-    const container = event.target.closest('.main');
-    console.log('scroll');
-    container.scrollTo({
-      top: 0,
-      left:
-        event.deltaY > 0
-          ? container.scrollLeft + window.innerWidth
-          : container.scrollLeft - window.innerWidth,
-    });
-  };
+    if (!scrollState && !event.target.closest('.swiper')) {
+      const container = event.target.closest('.main');
+      container.scrollTo({
+        top: 0,
+        left:
+          event.deltaY > 0
+            ? container.scrollLeft + window.innerWidth
+            : container.scrollLeft - window.innerWidth,
+      });
 
-  /*   useEffect(() => {
-    bindScrollSnap();
-  }, []); */
+      setScrollState(true);
+    }
+    setTimeout(() => {
+      setScrollState(false);
+    }, 500);
+  };
 
   return (
     <main className="main" ref={ref} onWheel={handleScroll}>

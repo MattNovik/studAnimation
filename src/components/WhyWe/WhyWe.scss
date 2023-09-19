@@ -55,7 +55,7 @@
       max-width: 1280px;
     }
 
-    &:hover {
+    /*     &:hover {
       & .why-we__item--quality {
         animation-play-state: running;
       }
@@ -103,10 +103,27 @@
       & .why-we__item--punctuality {
         animation-play-state: running;
       }
-    }
+    } */
   }
 
   &__item {
+    &--quality,
+    &--clever,
+    &--smile,
+    &--expe,
+    &--waves,
+    &--hopefully,
+    &--arrow,
+    &--support,
+    &--green-clever,
+    &--star,
+    &--docs,
+    &--punctuality {
+      animation-play-state: paused;
+      will-change: transform;
+      transition: transform 0.2s ease;
+    }
+
     &--quality {
       left: 0;
       top: 0;
@@ -115,7 +132,7 @@
       transform: rotate(6deg);
       background-color: $color-chartreuse-yellow;
       border-radius: size-desktop(22px);
-      animation-name: waving-quality;
+      /*       animation-name: waving-quality; */
       /* animation-play-state: paused; */
       animation-duration: 4.5s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
@@ -133,7 +150,7 @@
       width: 5%;
       height: 10%;
       color: $color-blue;
-      animation-name: waving-clever;
+      /* animation-name: waving-clever; */
       /* animation-play-state: paused; */
       animation-duration: 4s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
@@ -156,7 +173,7 @@
       left: 24%;
       width: 6%;
       height: 18%;
-      animation-name: waving-smile;
+      /* animation-name: waving-smile; */
       /* animation-play-state: paused; */
       animation-duration: 3.5s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
@@ -178,7 +195,7 @@
       border-radius: size-desktop(40px);
       background-color: $color-default-black;
       padding: 1% 2.4%;
-      animation-name: waving-expe;
+      /* animation-name: waving-expe; */
       /* animation-play-state: paused; */
       animation-duration: 2.5s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
@@ -196,7 +213,7 @@
       height: 14%;
       left: 4%;
       bottom: 15%;
-      animation-name: waving-waves;
+      /* animation-name: waving-waves; */
       /* animation-play-state: paused; */
       animation-duration: 4.5s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
@@ -213,7 +230,7 @@
       width: 14%;
       height: 30%;
       transform: rotate(-4.669deg);
-      animation-name: waving-hopefully;
+      /* animation-name: waving-hopefully; */
       /* animation-play-state: paused; */
       animation-duration: 4s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
@@ -232,7 +249,7 @@
       color: $color-chartreuse-yellow;
       width: 6%;
       height: 13%;
-      animation-name: waving-arrow;
+      /* animation-name: waving-arrow; */
       /* animation-play-state: paused; */
       animation-duration: 3s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
@@ -261,7 +278,7 @@
       justify-content: center;
       background-color: $color-blue;
       outline: solid size-desktop(8px) $color-blue;
-      animation-name: waving-support;
+      /* animation-name: waving-support; */
       /* animation-play-state: paused; */
       animation-duration: 5s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
@@ -290,7 +307,7 @@
       width: 1.5%;
       height: 9%;
       color: $color-chartreuse-yellow;
-      animation-name: waving-green-clever;
+      /* animation-name: waving-green-clever; */
       /* animation-play-state: paused; */
       animation-duration: 3.9s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
@@ -321,7 +338,7 @@
       width: 2%;
       height: 13%;
       color: $color-blue;
-      animation-name: waving-star;
+      /* animation-name: waving-star; */
       /* animation-play-state: paused; */
       animation-duration: 3.6s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
@@ -348,7 +365,7 @@
       border-radius: size-desktop(20px);
       background-color: $color-chartreuse-yellow;
       padding: 1% 1.6%;
-      animation-name: waving-docs;
+      /* animation-name: waving-docs; */
       /* animation-play-state: paused; */
       animation-duration: 2.9s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
@@ -364,7 +381,7 @@
       bottom: 7%;
       right: 2%;
       transform: rotate(8.512deg);
-      animation-name: waving-punctuality;
+      /* animation-name: waving-punctuality; */
       /* animation-play-state: paused; */
       animation-duration: 4.5s;
       animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
@@ -495,6 +512,11 @@
     line-height: 1.875rem;
     white-space: pre-line;
 
+    @include vp--1689 {
+      font-size: 1rem;
+      line-height: 1.3rem;
+    }
+
     @include vp--1245 {
       font-size: 0.7rem;
       line-height: 1rem;
@@ -503,6 +525,11 @@
     &-first {
       font-size: 1.5rem;
       font-weight: 700;
+
+      @include vp--1689 {
+        font-size: 1.4rem;
+        line-height: 1.2rem;
+      }
 
       @include vp--1245 {
         font-size: 1.05rem;
