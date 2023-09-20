@@ -27,6 +27,8 @@ const Main = ({
   setActiveSlideIndexBottom,
   isInViewportWhy = { isInViewportWhy },
 }) => {
+  const regTransitRight = useRef();
+  const regTransitLeft = useRef();
   const ref = useRef(null);
   const refContainer = useRef(null);
   const [scrollState, setScrollState] = useState(false);
@@ -63,16 +65,67 @@ const Main = ({
     }, 500);
   };
 
+  const handleWheelRightToLeft = () => {
+    regTransitRight.current.classList.remove(
+      'main__wrapper-block-transition-right-to-left--active'
+    );
+    setTimeout(() => {
+      regTransitRight.current.classList.add(
+        'main__wrapper-block-transition-right-to-left--active'
+      );
+    }, 0);
+
+    setTimeout(() => {
+      regTransitRight.current.classList.remove(
+        'main__wrapper-block-transition-right-to-left--active'
+      );
+    }, 1300);
+  };
+
+  const handleWheelLeftToRight = () => {
+    regTransitLeft.current.classList.remove(
+      'main__wrapper-block-transition-left-to-right--active'
+    );
+    setTimeout(() => {
+      regTransitLeft.current.classList.add(
+        'main__wrapper-block-transition-left-to-right--active'
+      );
+    }, 0);
+
+    setTimeout(() => {
+      regTransitLeft.current.classList.remove(
+        'main__wrapper-block-transition-left-to-right--active'
+      );
+    }, 1300);
+  };
+
   return (
     <main className="main" ref={ref} /* onWheel={handleScroll} */>
       <div className="main__wrapper">
+        <div
+          className="main__wrapper-block-transition-right-to-left"
+          ref={regTransitRight}
+        ></div>
+        <div
+          className="main__wrapper-block-transition-left-to-right"
+          ref={regTransitLeft}
+        ></div>
         <Swiper
           ref={refMainSwiper}
           spaceBetween={0}
+          speed={2000}
           loop={true}
           modules={[Virtual, Mousewheel]}
           onSlideChange={(swiper) => {
             handleSnap();
+          }}
+          onScroll={(swiper, event) => {
+            console.log(event.wheelDeltaY);
+            if (event.wheelDeltaY < 0) {
+              handleWheelRightToLeft();
+            } else {
+              handleWheelLeftToRight();
+            }
           }}
           slidesPerView={1}
           mousewheel={true}

@@ -109,6 +109,7 @@ const WhyWe = ({ refWhy, isInViewportWhy }) => {
   }, []);
 
   useEffect(() => {
+    console.log(isInViewportWhy);
     if (isInViewportWhy) {
       setLoadingState(false);
     }

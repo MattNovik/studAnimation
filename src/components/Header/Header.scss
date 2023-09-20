@@ -11,7 +11,7 @@
   align-items: center;
   padding: size-desktop(34px) size-desktop(17px) 0;
   max-height: size-desktop(80px);
-  z-index: 10;
+  z-index: 200;
 
   @include vp--1919 {
     max-width: 1536px;
