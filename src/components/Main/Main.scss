@@ -59,13 +59,13 @@
     opacity: 0;
     visibility: hidden;
     filter: blur(10px);
-    transform: translate(calc(-100% - 100vw), 0);
-    transition: transform 2.5s cubic-bezier(0.15, 0.4, 0.14, 0.53);
+    transform: translate(calc(-100%), 0);
+    transition: transform 3.5s cubic-bezier(0.15, 0.4, 0.14, 0.53);
 
     &--active {
       opacity: 1;
       visibility: visible;
-      transform: translate(100%, 0);
+      transform: translate(calc(100%), 0);
     }
 
     &:after {
