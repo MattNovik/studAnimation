@@ -5,7 +5,7 @@ import { useState } from 'react';
 import GirlImage from '../../assets/images/girl@2x.png';
 import LentaImage from '../../assets/images/big-lenta@2x.png';
 
-const OrderPage = ({ refOrder }) => {
+const OrderPage = ({ refOrder, dataSwiperRarallax }) => {
   const [loadingState, setLoadingState] = useState(false);
 
   const formik = useFormik({
@@ -50,8 +50,9 @@ const OrderPage = ({ refOrder }) => {
       ref={refOrder}
       data-elemes="order"
       key="4"
+      data-swiper-parallax-scale="0.5"
     >
-      <div className="order-page__wrapper">
+      <div className="order-page__wrapper" data-swiper-parallax="-1000">
         <div className="order-page__lenta-wrapper">
           <img
             src={LentaImage}
@@ -60,14 +61,18 @@ const OrderPage = ({ refOrder }) => {
           />
         </div>
         <div className="order-page__form-wrapper">
-          <h3 className="order-page__title">
+          <h3 className="order-page__title" data-swiper-parallax="-600">
             Дарим скидку
             <span className="order-page__title-big">до 15%</span>
           </h3>
-          <p className="order-page__help-title">
+          <p className="order-page__help-title" data-swiper-parallax="-400">
             на первый заказ при регистрации:
           </p>
-          <form className="order-page__form" onSubmit={formik.handleSubmit}>
+          <form
+            className="order-page__form"
+            onSubmit={formik.handleSubmit}
+            data-swiper-parallax="-800"
+          >
             <div className="order-page__inputs-wrapper">
               <input
                 type={'hidden'}
@@ -122,7 +127,7 @@ const OrderPage = ({ refOrder }) => {
             </label>
           </form>
         </div>
-        <div className="order-page__image-wrapper">
+        <div className="order-page__image-wrapper" data-swiper-parallax="-2000">
           <img className="order-page__image" src={GirlImage} alt="order-girl" />
         </div>
       </div>

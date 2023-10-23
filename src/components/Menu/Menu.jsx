@@ -14,8 +14,9 @@ const Menu = ({ clickSnap }) => {
                     onClick={(e) => clickSnap(e)}
                     className="menu-header__item-link"
                     data-swiper-slide-index={item.link}
+                    header-text={item.name}
                   >
-                    {item.name}
+                    <span>{item.name}</span>
                   </button>
                 </li>
               ))

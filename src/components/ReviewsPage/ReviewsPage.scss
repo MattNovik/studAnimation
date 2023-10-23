@@ -36,14 +36,29 @@
   }
 
   &__list-item {
+    position: relative;
     display: flex;
     align-items: flex-end;
     max-width: size-desktop(822px);
     margin: 0 auto;
-    position: relative;
     height: 100%;
     transition: transform 0.3s ease;
     transform: scale(0.9);
+    z-index: 2;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
+      height: 50%;
+      filter: blur(80px);
+      border-radius: 50%;
+      background-color: $color-blue;
+      z-index: -1;
+    }
 
     @include vp--1919 {
       max-width: 822px;

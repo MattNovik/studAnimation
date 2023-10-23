@@ -5,9 +5,9 @@ import * as Yup from 'yup';
 import { useState } from 'react';
 import { ReactComponent as IconStart } from '../../assets/images/svg/star.svg';
 import NumberOneImage from '../../assets/images/number-one@2x.png';
-import WoomenImage from '../../assets/images/woomen-second@2x.png';
+import WoomenImage from '../../assets/images/woomen-second-big@2x.png';
 
-const MainPage = ({ refMain }) => {
+const MainPage = ({ refMain, dataSwiperRarallax }) => {
   const [loadingState, setLoadingState] = useState(false);
 
   const formik = useFormik({
@@ -53,8 +53,12 @@ const MainPage = ({ refMain }) => {
       ref={refMain}
       data-elemes="main"
       key="1"
+      data-swiper-parallax-scale="0.5"
     >
-      <div className="main-page__wrapper">
+      <div
+        className="main-page__wrapper"
+        data-swiper-paralax={dataSwiperRarallax}
+      >
         <div className="main-page__form-wrapper">
           <h1 className="main-page__title">
             {'Нужна помощь с\n'}
@@ -117,7 +121,9 @@ const MainPage = ({ refMain }) => {
           </form>
         </div>
       </div>
-      <div className="main-page__image-wrapper">
+      <div
+        className="main-page__image-wrapper" /* data-swiper-parallax="-2000" */
+      >
         <div className="main-page__star">
           <IconStart />
         </div>

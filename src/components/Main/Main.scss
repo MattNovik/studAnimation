@@ -21,7 +21,7 @@
     visibility: hidden;
     filter: blur(10px);
     transform: translate(100vw, 0);
-    transition: transform 1.5s cubic-bezier(0.15, 0.4, 0.14, 0.53);
+    transition: transform 1.7s cubic-bezier(0.15, 0.4, 0.14, 0.53);
 
     &--active {
       opacity: 1;
@@ -38,11 +38,13 @@
       height: 100%;
       background: linear-gradient(
         90deg,
-        rgba(219, 255, 0, 1) 0%,
-        rgba(253, 253, 255, 1) 29%,
-        rgba(0, 25, 255, 1) 54%,
-        rgba(255, 255, 255, 1) 78%,
-        rgba(219, 255, 0, 1) 100%
+        rgba(253, 253, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 8%,
+        rgba(219, 255, 0, 1) 25%,
+        rgba(0, 25, 255, 1) 50%,
+        rgba(219, 255, 0, 1) 75%,
+        rgba(255, 255, 255, 1) 93%,
+        rgba(255, 255, 255, 1) 100%
       );
     }
   }
@@ -77,11 +79,13 @@
       height: 100%;
       background: linear-gradient(
         90deg,
-        rgba(219, 255, 0, 1) 0%,
-        rgba(253, 253, 255, 1) 29%,
-        rgba(0, 25, 255, 1) 54%,
-        rgba(255, 255, 255, 1) 78%,
-        rgba(219, 255, 0, 1) 100%
+        rgba(253, 253, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 8%,
+        rgba(219, 255, 0, 1) 25%,
+        rgba(0, 25, 255, 1) 50%,
+        rgba(219, 255, 0, 1) 75%,
+        rgba(255, 255, 255, 1) 93%,
+        rgba(255, 255, 255, 1) 100%
       );
     }
   }
@@ -119,12 +123,11 @@
   }
 
   &__item {
-    /*     scroll-snap-align: start; */
     width: 100vw;
     align-items: center;
     justify-content: center;
     display: flex;
-    overflow: hidden;
+    /* overflow: hidden; */
     font-size: 4rem;
     min-width: 100vw;
     min-height: 100vh;

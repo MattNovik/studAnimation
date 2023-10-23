@@ -1,3 +1,10 @@
+@function randomNum($min, $max) {
+  $rand: random();
+  $randomNum: $min + floor($rand * (($max - $min) + 1));
+
+  @return $randomNum;
+}
+
 .main-page {
   display: flex;
   flex-direction: column;
@@ -68,6 +75,30 @@
     top: size-desktop(20px);
     width: size-desktop(696px);
     height: size-desktop(654px);
+    z-index: 2;
+    /*     animation-name: appearRight;
+    animation-delay: 3s;
+    animation-duration: 1s;
+    animation-timing-function: ease-in; */
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 45%;
+      top: 60%;
+      transform: translate(-50%, -50%);
+      width: 70%;
+      height: 80%;
+      border-radius: 40%;
+      background-color: $color-chartreuse-yellow;
+      filter: blur(40px);
+      z-index: -1;
+      animation-name: resizing;
+      animation-delay: 3s;
+      animation-duration: 7s;
+      animation-iteration-count: infinite;
+      animation-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+    }
 
     @include vp--1919 {
       top: 20px;
@@ -87,6 +118,52 @@
     @include vp--1245 {
       width: 380px;
       height: 410px;
+    }
+
+    @keyframes resizing {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      50% {
+        transform: translate(
+            calc(-50% + #{randomNum(-50, 100)}px),
+            calc(-30% + #{randomNum(-50, 100)}px)
+          )
+          scale(#{randomNum(1.15, 1.25)});
+      }
+
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    @keyframes appearRight {
+      0% {
+        right: 100%;
+        top: size-desktop(20px);
+
+        @include vp--1919 {
+          top: 20px;
+        }
+
+        @include vp--1439 {
+          top: 80px;
+        }
+      }
+
+      100% {
+        right: 0;
+        top: size-desktop(20px);
+
+        @include vp--1919 {
+          top: 20px;
+        }
+
+        @include vp--1439 {
+          top: 80px;
+        }
+      }
     }
   }
 
@@ -124,10 +201,11 @@
   }
 
   &__woomen-image {
-    width: 100%;
+    width: 680px;
+    min-width: 620px;
     position: relative;
-    right: 0;
-    object-fit: contain;
+    right: 0px;
+    /*     object-fit: contain; */
     margin: 0;
   }
 
@@ -229,9 +307,9 @@
     align-items: center;
     justify-content: center;
     outline: none;
-    border: none;
     margin: 0;
     padding: size-desktop(16px) size-desktop(17px);
+    border: solid 1px $color-blue;
     min-width: size-desktop(250px);
     background-color: $color-blue;
     color: $color-default-white;
@@ -241,7 +319,13 @@
     border-radius: size-desktop(30px);
     text-transform: uppercase;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+
+    &:hover {
+      background-color: $color-default-white;
+      color: $color-blue;
+      border: solid 1px $color-blue;
+    }
 
     @include vp--1919 {
       padding: 16px 17px;

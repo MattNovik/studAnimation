@@ -4,6 +4,29 @@ import Main from './components/Main/Main';
 import './scss/index.scss';
 import Loader from './components/Loader/Loader';
 
+const listIndexLoopTo = {
+  0: 3, //order
+  1: 4, //contacts
+  2: 0, //main
+  3: 1, //reviews
+  4: 2, //why-we
+  5: 3, //order
+  6: 4, //contacts
+  7: 0, //main
+  8: 1, //reviews
+  9: 2, //why-we
+  10: 3, //order
+  11: 4, //contacts
+  12: 0, //main
+  13: 1, //reviews
+  14: 2, //why-we
+  15: 3, //order
+  16: 4, //contacts
+  17: 0, //main
+  18: 1, //reviews
+  19: 2, //why-we
+};
+
 const useIntersection = (element, rootMargin) => {
   const [isVisible, setState] = useState(false);
 
@@ -163,17 +186,7 @@ function App() {
       ? e.target.closest('.logo').dataset.swiperSlideIndex
       : undefined;
     if (index) {
-      if (index == 0 || index == 5 || index == 10 || index == 15) {
-        refMainSwiper.current.swiper.slideToLoop(3); //order
-      } else if (index == 1 || index == 6 || index == 11 || index == 16) {
-        refMainSwiper.current.swiper.slideToLoop(4); //contacts
-      } else if (index == 2 || index == 7 || index == 12 || index == 16) {
-        refMainSwiper.current.swiper.slideToLoop(0); //main
-      } else if (index == 3 || index == 8 || index == 13 || index == 18) {
-        refMainSwiper.current.swiper.slideToLoop(1); //reviews
-      } else if (index == 4 || index == 9 || index == 14 || index == 19) {
-        refMainSwiper.current.swiper.slideToLoop(2); //why-we
-      }
+      refMainSwiper.current.swiper.slideToLoop(listIndexLoopTo[index]);
 
       if (refSwiper.current.swiper.previousIndex > index) {
         refSwiper.current.swiper.loopFix('right');

@@ -38,17 +38,47 @@
   }
 
   &__item-link {
+    position: relative;
     color: inherit;
     font-size: inherit;
     font-weight: inherit;
-    padding: size-desktop(3px);
+    padding: size-desktop(3px) size-desktop(10px);
     border: none;
     outline: none;
     background-color: $color-transparent;
     cursor: pointer;
 
     @include vp--1919 {
-      padding: 3px;
+      padding: 3px 10px;
+    }
+
+    &:after {
+      content: attr(header-text);
+      position: absolute;
+      transform: translate(-50%, 1rem);
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      color: inherit;
+      opacity: 0;
+      left: 50%;
+      width: 100%;
+    }
+
+    & span {
+      display: inline-block;
+      transform: translateY(0);
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    &:hover {
+      &:after {
+        transform: translate(-50%, 0px);
+        opacity: 1;
+      }
+
+      & span {
+        transform: translateY(-1rem);
+        opacity: 0;
+      }
     }
   }
 
@@ -79,10 +109,16 @@
     outline: none;
     border-radius: size-desktop(10px);
     cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
 
     @include vp--1919 {
       padding: 14px 42px;
       border-radius: 10px;
+    }
+
+    &:hover {
+      color: $color-default-white;
+      background-color: $color-blue;
     }
   }
 }

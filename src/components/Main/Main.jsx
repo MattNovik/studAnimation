@@ -7,9 +7,10 @@ import OrderPage from '../OrderPage/OrderPage';
 import MainPage from '../MainPage/MainPage';
 import ReivewsPage from '../ReviewsPage/ReviewsPage';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Virtual, Mousewheel } from 'swiper/modules';
+import { Virtual, Mousewheel, Parallax } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/virtual';
+import 'swiper/css/parallax';
 
 const mainData = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
@@ -79,7 +80,7 @@ const Main = ({
       regTransitRight.current.classList.remove(
         'main__wrapper-block-transition-right-to-left--active'
       );
-    }, 1300);
+    }, 1400);
   };
 
   const handleWheelLeftToRight = () => {
@@ -96,7 +97,7 @@ const Main = ({
       regTransitLeft.current.classList.remove(
         'main__wrapper-block-transition-left-to-right--active'
       );
-    }, 1300);
+    }, 1400);
   };
 
   return (
@@ -113,19 +114,20 @@ const Main = ({
         <Swiper
           ref={refMainSwiper}
           spaceBetween={0}
-          speed={2000}
+          speed={800}
+          parallax={true}
           loop={true}
-          modules={[Virtual, Mousewheel]}
+          modules={[Virtual, Mousewheel, Parallax]}
           onSlideChange={(swiper) => {
             handleSnap();
+            console.log('swiper');
           }}
           onScroll={(swiper, event) => {
-            console.log(event.wheelDeltaY);
-            if (event.wheelDeltaY < 0) {
+            /*             if (event.wheelDeltaY < 0) {
               handleWheelRightToLeft();
             } else {
               handleWheelLeftToRight();
-            }
+            } */
           }}
           slidesPerView={1}
           mousewheel={true}
@@ -142,7 +144,7 @@ const Main = ({
                     : 'main__list-item'
                 }
               >
-                <MainPage refMain={refMain} />
+                <MainPage refMain={refMain} dataSwiperRarallax="-300" />
               </li>
             )}
           </SwiperSlide>
@@ -157,7 +159,7 @@ const Main = ({
                     : 'main__list-item'
                 }
               >
-                <ReivewsPage refReview={refReview} />
+                <ReivewsPage refReview={refReview} dataSwiperRarallax="-300" />
               </li>
             )}
           </SwiperSlide>
@@ -172,7 +174,11 @@ const Main = ({
                     : 'main__list-item'
                 }
               >
-                <WhyWe refWhy={refWhy} isInViewportWhy={isInViewportWhy} />
+                <WhyWe
+                  refWhy={refWhy}
+                  isInViewportWhy={isInViewportWhy}
+                  dataSwiperRarallax="-300"
+                />
               </li>
             )}
           </SwiperSlide>
@@ -187,7 +193,7 @@ const Main = ({
                     : 'main__list-item'
                 }
               >
-                <OrderPage refOrder={refOrder} />
+                <OrderPage refOrder={refOrder} dataSwiperRarallax="-600" />
               </li>
             )}
           </SwiperSlide>

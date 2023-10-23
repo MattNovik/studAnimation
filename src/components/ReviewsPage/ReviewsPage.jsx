@@ -12,7 +12,7 @@ import { ReactComponent as IconArrow } from '../../assets/images/svg/arro.svg';
 
 const reviewsData = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
-const ReivewsPage = ({ refReview }) => {
+const ReivewsPage = ({ refReview, dataSwiperRarallax }) => {
   const refSwiperReview = useRef(null);
   return (
     <section
@@ -20,8 +20,12 @@ const ReivewsPage = ({ refReview }) => {
       ref={refReview}
       data-elemes="reviews"
       key="2"
+      data-swiper-parallax-scale="0.5"
     >
-      <div className="reviews-page__wrapper">
+      <div
+        className="reviews-page__wrapper"
+        data-swiper-paralax={dataSwiperRarallax}
+      >
         <Swiper
           ref={refSwiperReview}
           spaceBetween={-100}

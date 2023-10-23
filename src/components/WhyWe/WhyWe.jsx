@@ -12,7 +12,7 @@ const getRandomNumber = (min, max) => {
   return Math.random() * (max - min) + min;
 };
 
-const WhyWe = ({ refWhy, isInViewportWhy }) => {
+const WhyWe = ({ refWhy, isInViewportWhy, dataSwiperRarallax }) => {
   const [loadingState, setLoadingState] = useState(true);
   const refFirst = useRef(null);
   const refSecond = useRef(null);
@@ -49,69 +49,85 @@ const WhyWe = ({ refWhy, isInViewportWhy }) => {
 
   const debouncedFunc = debounce(movingFunc, 20);
 
-  const movingQuality = (object, speed) => {
-    refWhy.current.addEventListener('mousemove', (event) => {
-      var X = Math.floor(event.pageX / speed - 17) + 'px';
-      var Y = Math.floor(event.pageY / speed) + 'px';
-      object.style.transform =
-        'translate3d(' + X + ' , ' + Y + ' , ' + 0 + ') rotate(6deg)';
-    });
+  const movingQuality = (object, speed, event) => {
+    let X = Math.floor(event.pageX / speed - 17) + 'px';
+    let Y = Math.floor(event.pageY / speed) + 'px';
+    object.style.transform =
+      'translate3d(' +
+      X +
+      ' , ' +
+      Y +
+      ' , ' +
+      0 +
+      ') rotate(6deg)  skew(-5deg, -5deg)';
   };
 
-  const movingSimple = (object, speed) => {
-    refWhy.current.addEventListener('mousemove', (event) => {
-      var X = Math.floor(event.pageX / speed - 25) + 'px';
-      var Y = Math.floor(event.pageY / speed) + 'px';
-      object.style.transform = 'translate3d(' + X + ' , ' + Y + ' , ' + 0 + ')';
-    });
+  const movingSimple = (object, speed, event) => {
+    let X = Math.floor(event.pageX / speed - 22) + 'px';
+    let Y = Math.floor(event.pageY / speed) + 'px';
+    object.style.transform = 'translate3d(' + X + ' , ' + Y + ' , ' + 0 + ')';
   };
 
-  const movingHopefully = (object, speed) => {
-    refWhy.current.addEventListener('mousemove', (event) => {
-      var X = Math.floor(event.pageX / speed - 15) + 'px';
-      var Y = Math.floor(event.pageY / speed) + 'px';
-      object.style.transform =
-        'translate3d(' + X + ' , ' + Y + ' , ' + 0 + ') rotate(-4.669deg)';
-    });
+  const movingHopefully = (object, speed, event) => {
+    let X = Math.floor(event.pageX / speed - 15) + 'px';
+    let Y = Math.floor(event.pageY / speed) + 'px';
+    object.style.transform =
+      'translate3d(' + X + ' , ' + Y + ' , ' + 0 + ') rotate(-4.669deg)';
   };
 
-  const movingSupport = (object, speed) => {
-    refWhy.current.addEventListener('mousemove', (event) => {
-      var X = Math.floor(event.pageX / speed - 10) + 'px';
-      var Y = Math.floor(event.pageY / speed) + 'px';
-      object.style.transform =
-        'translate3d(' + X + ' , calc(-50% + ' + Y + ') , ' + 0 + ')';
-    });
+  const movingSupport = (object, speed, event) => {
+    let objectShadow = object.querySelector('.why-we__item-shadow');
+    let X = Math.floor(event.pageX / speed - 20) + 'px';
+    let Y = Math.floor(event.pageY / speed) + 'px';
+    object.style.transform =
+      'translate3d(' + X + ' , calc(-50% + ' + Y + ') , ' + 0 + ')';
+    if (objectShadow) {
+      let XShadow = Math.floor(event.pageX / speed - 10) + 'px';
+      let YShadow = Math.floor(event.pageY / speed - 10) + 'px';
+      objectShadow.style.transform =
+        'translate3d(' + XShadow + ' , ' + YShadow + ' , ' + 0 + ')';
+    }
   };
 
-  const movingPunctuality = (object, speed) => {
-    refWhy.current.addEventListener('mousemove', (event) => {
-      var X = Math.floor(event.pageX / speed - 20) + 'px';
-      var Y = Math.floor(event.pageY / speed) + 'px';
-      object.style.transform =
-        'translate3d(' + X + ' , ' + Y + ' , ' + 0 + ') rotate(8.512deg)';
-    });
+  const movingPunctuality = (object, speed, event) => {
+    let X = Math.floor(event.pageX / speed - 20) + 'px';
+    let Y = Math.floor(event.pageY / speed) + 'px';
+    object.style.transform =
+      'translate3d(' + X + ' , ' + Y + ' , ' + 0 + ') rotate(8.512deg)';
   };
 
   useEffect(() => {
-    movingQuality(refFirst.current, getRandomNumber(50, 80));
-    movingSimple(refSecond.current, getRandomNumber(70, 90));
-    movingSimple(refThird.current, getRandomNumber(40, 50));
-    movingSimple(refFourh.current, getRandomNumber(50, 90));
-    movingSimple(refFifth.current, getRandomNumber(70, 100));
-    movingHopefully(refSix.current, getRandomNumber(60, 70));
-    movingSimple(refSevens.current, getRandomNumber(80, 90));
-    movingSupport(refEight.current, getRandomNumber(40, 80));
-    movingSimple(refNine.current, getRandomNumber(40, 75));
-    movingSimple(refTen.current, getRandomNumber(55, 110));
-    movingSimple(refEleven.current, getRandomNumber(70, 80));
-    movingPunctuality(refTwelve.current, getRandomNumber(50, 70));
+    refWhy.current.addEventListener('mousemove', (event) => {
+      movingQuality(refFirst.current, getRandomNumber(30, 50), event);
+      movingSimple(refThird.current, getRandomNumber(20, 30), event);
+      movingSupport(refEight.current, getRandomNumber(70, 80), event);
+      movingSimple(refEleven.current, getRandomNumber(70, 80), event);
+      movingPunctuality(refTwelve.current, getRandomNumber(50, 70), event);
+      /*  movingSimple(refSecond.current, getRandomNumber(70, 90), event); */
+      /* movingSimple(refFourh.current, getRandomNumber(50, 60), event); */
+      /* movingSimple(refFifth.current, getRandomNumber(70, 100), event); */
+      /*  movingHopefully(refSix.current, getRandomNumber(60, 70), event); */
+      /* movingSimple(refSevens.current, getRandomNumber(80, 90), event); */
+      /*  movingSimple(refNine.current, getRandomNumber(40, 75), event);
+      movingSimple(refTen.current, getRandomNumber(55, 110), event); */
+    });
+
+    return () => {
+      refWhy.current.removeEventListener('mousemove', (event) => {
+        movingQuality(refFirst.current, getRandomNumber(30, 50), event);
+        movingSimple(refThird.current, getRandomNumber(20, 30), event);
+        movingSupport(refEight.current, getRandomNumber(70, 80), event);
+        movingSimple(refEleven.current, getRandomNumber(70, 80), event);
+        movingPunctuality(refTwelve.current, getRandomNumber(50, 70), event);
+      });
+    };
   }, []);
 
   useEffect(() => {
-    console.log(isInViewportWhy);
     if (isInViewportWhy) {
       setLoadingState(false);
+    } else {
+      setLoadingState(true);
     }
   }, [isInViewportWhy]);
 
@@ -121,6 +137,7 @@ const WhyWe = ({ refWhy, isInViewportWhy }) => {
       ref={refWhy}
       data-elemes="why"
       key="3"
+      data-swiper-parallax-scale="0.5"
     >
       <h2
         className={
@@ -132,7 +149,7 @@ const WhyWe = ({ refWhy, isInViewportWhy }) => {
       <p className="why-we__help-title">
         Каждый день наши преподаватели помогают тысячам студентов учиться лучше
       </p>
-      <div className="why-we__wrapper-blocks">
+      <div className="why-we__wrapper-blocks" data-swiper-parallax-x="50%">
         <div className="why-we__item why-we__item--quality" ref={refFirst}>
           <p className="why-we__item-quality-text">
             <span className="why-we__item-quality-text-first">
@@ -165,13 +182,19 @@ const WhyWe = ({ refWhy, isInViewportWhy }) => {
         <div className="why-we__item why-we__item--arrow" ref={refSevens}>
           <IconArrow />
         </div>
-        <div className="why-we__item why-we__item--support" ref={refEight}>
-          <p className="why-we__item-support-text">
-            <span className="why-we__item-support-text-first">
-              {'Поддержка\n'}
-            </span>
-            {'Круглосуточная\n служба ответит\n на любые\n вопросы'}
-          </p>
+        <div
+          className="why-we__item why-we__item--support-wrapper "
+          ref={refEight}
+        >
+          <div className="why-we__item--support">
+            <p className="why-we__item-support-text">
+              <span className="why-we__item-support-text-first">
+                {'Поддержка\n'}
+              </span>
+              {'Круглосуточная\n служба ответит\n на любые\n вопросы'}
+            </p>
+          </div>
+          <div className="why-we__item-shadow"></div>
         </div>
         <div className="why-we__item why-we__item--green-clever" ref={refNine}>
           <IconFourFlower />
